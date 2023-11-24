@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://github.com/liguodongiot/llm-action/blob/main/pic/llm-action.png" >
-</p>
-
 ## 目錄
 
 - 🔥 [LLM訓練](#llm訓練)

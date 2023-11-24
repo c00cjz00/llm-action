@@ -1,31 +1,31 @@
 
 
 
-## CV算法
+## CV演算法
 
 
 
-- 图像分类
-- 图像语义分割（Semantic Segmentation）
-- 目标检测（Object Detection）
-- 视频分类（video classification）
-
-
-
-
-- 人脸关键点检测
-- 图像超分辨率（Image Super Resolution）
+- 影象分類
+- 影象語義分割（Semantic Segmentation）
+- 目標檢測（Object Detection）
+- 影片分類（video classification）
 
 
 
 
+- 人臉關鍵點檢測
+- 影象超解析度（Image Super Resolution）
 
-- 图像生成
-- 目标跟踪
-- 图像重构
+
+
+
+
+- 影象生成
+- 目標跟蹤
+- 影象重構
 - 超分
-- 风格迁移
-- 姿态估计
+- 風格遷移
+- 姿態估計
 
 
 
@@ -33,7 +33,7 @@
 
 
 
-## 算法
+## 演算法
 
 
 

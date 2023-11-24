@@ -2,7 +2,7 @@
 # HelloDeepSpeed
 
 
-- 源码：https://github.com/microsoft/DeepSpeedExamples/tree/master/training/HelloDeepSpeed
+- 原始碼：https://github.com/microsoft/DeepSpeedExamples/tree/master/training/HelloDeepSpeed
 
 
 ## HF
@@ -28,12 +28,12 @@ for step, batch in enumerate(data_iterator, start=start_step):
 ```
 
 
-运行命令：
+執行命令：
 
 ```
 python train_bert.py --checkpoint_dir ./experiments --local_rank 0
 ```
-模型输出权重文件：
+模型輸出權重檔案：
 ```
 tree experiments/
 experiments/
@@ -82,10 +82,10 @@ for step, batch in enumerate(data_iterator, start=start_step):
 
 
 
-运行命令及模型输出权重文件：
+執行命令及模型輸出權重檔案：
 
 ```
-# 默认使用当前服务器所有GPU卡
+# 預設使用當前伺服器所有GPU卡
 deepspeed train_bert_ds.py --checkpoint_dir ./experiments_ds
 
 tree experiments_ds/

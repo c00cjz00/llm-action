@@ -7,7 +7,7 @@
 - https://github.com/PaddlePaddle/PaddleNLP/tree/develop/llm
 
 
-- pytorch转paddle: https://github.com/PaddlePaddle/PaddleNLP/blob/v2.6.1/docs/community/contribute_models/convert_pytorch_to_paddle.rst
+- pytorch轉paddle: https://github.com/PaddlePaddle/PaddleNLP/blob/v2.6.1/docs/community/contribute_models/convert_pytorch_to_paddle.rst
 
 
 
@@ -47,7 +47,7 @@ paddlecloud/paddlenlp:develop-gpu-cuda10.2-cudnn7-cdd682 \
 
 
 
-## 支持的模型
+## 支援的模型
 
 ```
 bigscience/bloom-560m
@@ -79,9 +79,9 @@ tokenizer = BloomTokenizer.from_pretrained("bigscience/bloomz-560m")
 import paddlenlp
 from pprint import pprint
 from paddlenlp import Taskflow
-schema = ['时间', '选手', '赛事名称'] # Define the schema for entity extraction
+schema = ['時間', '選手', '賽事名稱'] # Define the schema for entity extraction
 ie = Taskflow('information_extraction', schema=schema)
-pprint(ie("2月8日上午北京冬奥会自由式滑雪女子大跳台决赛中中国选手谷爱凌以188.25分获得金牌！"))
+pprint(ie("2月8日上午北京冬奧會自由式滑雪女子大跳臺決賽中中國選手谷愛凌以188.25分獲得金牌！"))
 ```
 
 
@@ -101,7 +101,7 @@ from paddlenlp.transformers import AutoTokenizer, AutoModelForCausalLM
 tokenizer = AutoTokenizer.from_pretrained("bigscience/bloomz-560m")
 
 model = AutoModelForCausalLM.from_pretrained("bigscience/bloomz-560m", dtype="float32")
-input_features = tokenizer("你好！请自我介绍一下。", return_tensors="pd")
+input_features = tokenizer("你好！請自我介紹一下。", return_tensors="pd")
 outputs = model.generate(**input_features, max_length=128)
 tokenizer.batch_decode(outputs[0])
 
@@ -125,10 +125,10 @@ tokenizer = AutoTokenizer.from_pretrained("bigscience/bloom-560m", from_hf_hub=T
 ```
 
 
-### 动态图推理
+### 動態圖推理
 
 ```
-# 预训练&SFT动态图模型推理
+# 預訓練&SFT動態圖模型推理
 python predictor.py \
     --model_name_or_path meta-llama/Llama-2-7b-chat \
     --batch_size 1 \
@@ -138,21 +138,21 @@ python predictor.py \
 ```
 
 
-### 静态图推理
+### 靜態圖推理
 
 
 
 ```
-# 首先需要运行一下命令将动态图导出为静态图
-# LoRA需要先合并参数，详见3.7LoRA参数合并
-# Prefix Tuning暂不支持
+# 首先需要執行一下命令將動態圖匯出為靜態圖
+# LoRA需要先合併引數，詳見3.7LoRA引數合併
+# Prefix Tuning暫不支援
 python export_model.py \
     --model_name_or_path meta-llama/Llama-2-7b-chat \
     --output_path ./inference \
     --dtype float16
 
 
-# 静态图模型推理
+# 靜態圖模型推理
 python predictor.py \
     --model_name_or_path inference \
     --batch_size 1 \
@@ -162,7 +162,7 @@ python predictor.py \
 ```
 
 
-## Flask & Gradio UI服务化部署
+## Flask & Gradio UI服務化部署
 
 ```
 python -m paddle.distributed.launch --gpus "0,1,2,3,4,5,6,7" flask_server.py \
@@ -179,9 +179,9 @@ python -m paddle.distributed.launch --gpus "0,1,2,3,4,5,6,7" flask_server.py \
 ## 量化
 
 
-量化算法可以将模型权重和激活转为更低比特数值类型表示，能够有效减少显存占用和计算开销。
+量化演算法可以將模型權重和啟用轉為更低位元數值型別表示，能夠有效減少視訊記憶體佔用和計算開銷。
 
-下面我们提供GPTQ和PaddleSlim自研的PTQ策略，分别实现WINT4和W8A8量化。
+下面我們提供GPTQ和PaddleSlim自研的PTQ策略，分別實現WINT4和W8A8量化。
 
 - https://github.com/PaddlePaddle/PaddleSlim/blob/develop/docs/zh_cn/tutorials/quant/advanced_quantization.md
 
@@ -194,15 +194,15 @@ https://www.paddlepaddle.org.cn/whl/linux/gpu/develop.html
 python -m pip install paddlepaddle-gpu==0.0.0.post117 -f https://www.paddlepaddle.org.cn/whl/linux/gpu/develop.html
 
 
-安装发布版本：
+安裝釋出版本：
 
 pip install paddleslim
-安装develop版本：
+安裝develop版本：
 
 git clone https://github.com/PaddlePaddle/PaddleSlim.git & cd PaddleSlim
 python setup.py install
 
-验证安装：安装完成后您可以使用 python 或 python3 进入 python 解释器，输入import paddleslim, 没有报错则说明安装成功。
+驗證安裝：安裝完成後您可以使用 python 或 python3 進入 python 直譯器，輸入import paddleslim, 沒有報錯則說明安裝成功。
 ```
 
 

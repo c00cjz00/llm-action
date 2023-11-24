@@ -1,14 +1,14 @@
 
-## 简介
+## 簡介
 
 - https://docs.nvidia.com/deeplearning/tensorrt/tensorflow-quantization-toolkit/docs/docs/qat.html
 - Quantization Aware Training (QAT)
 - https://github.com/HuangOwen/Awesome-LLM-Compression
 - https://blog.csdn.net/jinzhuojun/article/details/106955059
-- 闲话模型压缩之量化（Quantization）篇
+- 閒話模型壓縮之量化（Quantization）篇
 
 
-一文总结当下常用的大型 transformer 效率优化方案
+一文總結當下常用的大型 transformer 效率最佳化方案
 - https://zhuanlan.zhihu.com/p/604118644
 - https://lilianweng.github.io/posts/2023-01-10-inference-optimization/
 
@@ -17,7 +17,7 @@ Introduction to Weight Quantization：Reducing the size of Large Language Models
 - https://towardsdatascience.com/introduction-to-weight-quantization-2494701b9c0c
 
 
-大规模 Transformer 模型 8 比特矩阵乘简介 - 基于 Hugging Face Transformers、Accelerate 以及 bitsandbytes
+大規模 Transformer 模型 8 位元矩陣乘簡介 - 基於 Hugging Face Transformers、Accelerate 以及 bitsandbytes
 - https://huggingface.co/blog/zh/hf-bitsandbytes-integration
 
 
@@ -25,25 +25,25 @@ Introduction to Weight Quantization：Reducing the size of Large Language Models
 
 
 
-- 大模型量化原理综述（一）：概述
-- 大模型量化原理综述（二）：训练感知量化 LLM-QAT
-- 大模型量化原理综述（二）：SmoothQuant
-- 大模型量化原理综述（二）：AWQ
-- 大模型量化原理综述（二）：GPTQ
-- 大模型量化原理综述（三）：LLM.int8()
+- 大模型量化原理綜述（一）：概述
+- 大模型量化原理綜述（二）：訓練感知量化 LLM-QAT
+- 大模型量化原理綜述（二）：SmoothQuant
+- 大模型量化原理綜述（二）：AWQ
+- 大模型量化原理綜述（二）：GPTQ
+- 大模型量化原理綜述（三）：LLM.int8()
 
 
 
 ---
 
 
-在深度神经网络上应用量化策略有两种常见的方法：
+在深度神經網路上應用量化策略有兩種常見的方法：
 
-- 训练后量化（PTQ）：首先需要模型训练至收敛，然后将其权重的精度降低。与训练过程相比，量化操作起来往往代价小得多；
-- 量化感知训练 (QAT)：在预训练或进一步微调期间应用量化。QAT 能够获得更好的性能，但需要额外的计算资源，还需要使用具有代表性的训练数据。
+- 訓練後量化（PTQ）：首先需要模型訓練至收斂，然後將其權重的精度降低。與訓練過程相比，量化操作起來往往代價小得多；
+- 量化感知訓練 (QAT)：在預訓練或進一步微調期間應用量化。QAT 能夠獲得更好的效能，但需要額外的計算資源，還需要使用具有代表性的訓練資料。
 
 
-值得注意的是，理论上的最优量化策略与实际在硬件内核上的表现存在着客观的差距。**由于 GPU 内核对某些类型的矩阵乘法（例如 INT4 x FP16）缺乏支持，并非下面所有的方法都会加速实际的推理过程**。
+值得注意的是，理論上的最優量化策略與實際在硬體核心上的表現存在著客觀的差距。**由於 GPU 核心對某些型別的矩陣乘法（例如 INT4 x FP16）缺乏支援，並非下面所有的方法都會加速實際的推理過程**。
 
 
 
@@ -53,10 +53,10 @@ Introduction to Weight Quantization：Reducing the size of Large Language Models
 
 - ZeroQuant: Efficient and Affordable Post-Training Quantization for Large-Scale Transformers
   - https://www.deepspeed.ai/tutorials/model-compression/
-  - 集成在Deepspeed
+  - 整合在Deepspeed
 - SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models
   - https://github.com/mit-han-lab/smoothquant
-  - 已经集成在[FasterTransformer](https://github.com/NVIDIA/FasterTransformer)
+  - 已經整合在[FasterTransformer](https://github.com/NVIDIA/FasterTransformer)
 - GPTQ: Accurate Post-training Compression for Generative Pretrained Transformers
 - AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration
   - https://github.com/mit-han-lab/llm-awq

@@ -1,18 +1,18 @@
 
 
-## 测试环境
+## 測試環境
 
 DeepSpeed v0.9.5
 
-## 验证案例及结果
+## 驗證案例及結果
 
-验证了 GPT-3 预训练的以下情况（同步之前/之后匹配训练/校验曲线、检查点保存/加载工作）：
+驗證了 GPT-3 預訓練的以下情況（同步之前/之後匹配訓練/校驗曲線、檢查點儲存/載入工作）：
 
 - 使用 DeepSpeed ZeRO stage 1
-- 使用 DeepSpeed ZeRO stage 1 和 Megatron-LM 的张量并行
-- 使用 DeepSpeed ZeRO stage 1、Megatron-LM 的张量并行和 DeepSpeed 的流水线并行（即 3D 并行性）
+- 使用 DeepSpeed ZeRO stage 1 和 Megatron-LM 的張量並行
+- 使用 DeepSpeed ZeRO stage 1、Megatron-LM 的張量並行和 DeepSpeed 的流水線並行（即 3D 並行性）
 
-此外，下面是同步前后的性能/收敛性比较。
+此外，下面是同步前後的效能/收斂性比較。
 
 ## Flash attention
 
@@ -25,7 +25,7 @@ DeepSpeed v0.9.5
 
 
 
-## 模型转换
+## 模型轉換
 
 
 ```

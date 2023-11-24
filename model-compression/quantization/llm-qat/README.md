@@ -52,7 +52,7 @@ pip install -r requirement.txt
 
 ```
 
-## 合成数据
+## 合成數據
 ```
 
 
@@ -231,7 +231,7 @@ LlamaForCausalLM(
 ```
 
 
-模型输出：
+模型輸出：
 
 ```
 tree -h

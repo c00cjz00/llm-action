@@ -1,6 +1,6 @@
 
 
-## 环境
+## 環境
 
 
 ```
@@ -24,29 +24,29 @@ pip install jupyterlab
 pip install deepspeed
 ```
 
-生成配置文件：
+生成配置檔案：
 ```
 > jupyter lab --generate-config
 Writing default config to: /home/guodong.li/.jupyter/jupyter_lab_config.py
 ```
 
-对密码进行加密：
+對密碼進行加密：
 ```
 from jupyter_server.auth import passwd; passwd()
 ```
 
 
-修改配置文件：
+修改配置檔案：
 ```
 c.ServerApp.allow_origin = '*'
 c.ServerApp.allow_remote_access = True
 c.ServerApp.ip = '0.0.0.0'
 c.ServerApp.open_browser = False  
-c.ServerApp.password = '加密后的密码'
+c.ServerApp.password = '加密後的密碼'
 c.ServerApp.port = 9999
 ```
 
-启动：
+啟動：
 ```
 jupyter lab --allow-root
 nohup jupyter lab --allow-root > jupyterlab.log 2>&1 &
@@ -54,36 +54,36 @@ nohup jupyter lab --allow-root > jupyterlab.log 2>&1 &
 
 
 
-# 任务类型
+# 任務型別
 
-- 因果语言模型（Causal Language Modeling）
-- 条件生成（Conditional Generation）
-- 序列分类（Sequence Classification）：整个序列输出一个标签。
-- Token 分类（Token Classification）：每个 Token 输出一个标签。
-- 文本-图像生成（Text-to-Image Generation）
-- 图像分类（Image Classification）
-- 序列到序列语言模型（Seq2Seq LM）
-- 问答任务（Question Answering）：返回给定问题的答案。常见的问答任务有两种类型：
-  - 提取：从给定的上下文中提取答案。
-  - 摘要：从上下文中生成正确回答问题的答案。
-
-
-以下是一些常见 NLP 任务：
-
--   序列分类（Sequence Classification），对整个句子进行分类。如: 获取评论的情绪，检测电子邮件是否为垃圾邮件，确定句子在语法上是否正确或两个句子在逻辑上是否相关等
--   Token分类（Token Classification），对句子中的每个词进行分类。如: 识别句子的语法成分（名词、动词、形容词）或命名实体（人、地点、组织）。
--   **生成文本内容**: 用自动生成的文本完成提示，用屏蔽词填充文本中的空白
--   **从文本中提取答案**: 给定问题和上下文，根据上下文中提供的信息提取问题的答案
--   **从输入文本生成新句子**: 将文本翻译成另一种语言，总结文本
+- 因果語言模型（Causal Language Modeling）
+- 條件生成（Conditional Generation）
+- 序列分類（Sequence Classification）：整個序列輸出一個標籤。
+- Token 分類（Token Classification）：每個 Token 輸出一個標籤。
+- 文字-影象生成（Text-to-Image Generation）
+- 影象分類（Image Classification）
+- 序列到序列語言模型（Seq2Seq LM）
+- 問答任務（Question Answering）：返回給定問題的答案。常見的問答任務有兩種型別：
+  - 提取：從給定的上下文中提取答案。
+  - 摘要：從上下文中生成正確回答問題的答案。
 
 
+以下是一些常見 NLP 任務：
+
+-   序列分類（Sequence Classification），對整個句子進行分類。如: 獲取評論的情緒，檢測電子郵件是否為垃圾郵件，確定句子在語法上是否正確或兩個句子在邏輯上是否相關等
+-   Token分類（Token Classification），對句子中的每個詞進行分類。如: 識別句子的語法成分（名詞、動詞、形容詞）或命名實體（人、地點、組織）。
+-   **生成文字內容**: 用自動生成的文字完成提示，用遮蔽詞填充文字中的空白
+-   **從文字中提取答案**: 給定問題和上下文，根據上下文中提供的資訊提取問題的答案
+-   **從輸入文字生成新句子**: 將文字翻譯成另一種語言，總結文字
 
 
-## 高效微调
 
-### 大模型参数高效微调技术实战（二）-Prompt Tuning
 
-### 大模型参数高效微调技术实战（三）-P-Tuning
+## 高效微調
+
+### 大模型引數高效微調技術實戰（二）-Prompt Tuning
+
+### 大模型引數高效微調技術實戰（三）-P-Tuning
 
 
 LSTM:
@@ -133,14 +133,14 @@ PeftModelForCausalLM(
 ```
 
 
-### 大模型参数高效微调技术实战（四）-Prefix Tuning 
+### 大模型引數高效微調技術實戰（四）-Prefix Tuning 
 
 
 
-### 大模型参数高效微调技术实战（三）-LoRA
+### 大模型引數高效微調技術實戰（三）-LoRA
 
 
-<details><summary>详细输出：</summary><p>
+<details><summary>詳細輸出：</summary><p>
   
 ```
 > accelerate launch --config_file accelerate_ds_zero3_cpu_offload_config.yaml peft_lora_clm_accelerate_ds_zero3_offload.py
@@ -504,13 +504,10 @@ model_output: /data/nfs/llm/model/bloomz-560m_LORA_CAUSAL_LM
 
 
 
-### 大模型参数高效微调技术实战（四）-AdaLoRA
+### 大模型引數高效微調技術實戰（四）-AdaLoRA
 
 
-### 大模型参数高效微调技术实战（五）-QLoRA
-
-
-
+### 大模型引數高效微調技術實戰（五）-QLoRA
 
 
 
@@ -518,11 +515,14 @@ model_output: /data/nfs/llm/model/bloomz-560m_LORA_CAUSAL_LM
 
 
 
-- 大模型参数高效微调技术实战（一）-Prefix Tuning 
-- 大模型参数高效微调技术实战（二）-Prompt Tuning
-- 大模型参数高效微调技术实战（三）-P-Tuning
-- 大模型参数高效微调技术实战（三）-LoRA
-- 大模型参数高效微调技术实战（四）-AdaLoRA
-- 大模型参数高效微调技术实战（五）-QLoRA
+
+
+
+- 大模型引數高效微調技術實戰（一）-Prefix Tuning 
+- 大模型引數高效微調技術實戰（二）-Prompt Tuning
+- 大模型引數高效微調技術實戰（三）-P-Tuning
+- 大模型引數高效微調技術實戰（三）-LoRA
+- 大模型引數高效微調技術實戰（四）-AdaLoRA
+- 大模型引數高效微調技術實戰（五）-QLoRA
 
 

@@ -3,11 +3,11 @@
 
 
 
-## 基于Megatron-LM实现的项目
+## 基於Megatron-LM實現的專案
 
 - [CodeGeeX](https://github.com/THUDM/CodeGeeX)
 
-- [如何使用 Megatron-LM 训练语言模型](https://huggingface.co/blog/zh/megatron-training)：数据预处理，训练，模型转换，推理等
+- [如何使用 Megatron-LM 訓練語言模型](https://huggingface.co/blog/zh/megatron-training)：資料預處理，訓練，模型轉換，推理等
 
 
 
@@ -15,17 +15,17 @@
 
 
 
-### 数据加载
+### 資料載入
 
-Megatron-LM 带有一个高效的 DataLoader，其中数据在训练前被 tokenize 和 shuffle。它还将数据拆分为带有索引的编号序列，并将索引存储，因此 tokenize 只需要计算一次。为了构建索引，首先根据训练参数计算每个 epoch 的数量，并创建一个排序，然后对数据进行 shuffle 操作。这与大多数情况不同，我们通常迭代整个数据集直到其用尽，然后重复第二个 epoch 。这平滑了学习曲线并节省了训练时间。
-
-
-### 融合 CUDA 内核
-当一个计算在 GPU 上运行时，必要的数据会从内存中取出并加载到 GPU 上，然后计算结果被保存回内存。简单来说，融合内核的思想是: 将通常由 PyTorch 单独执行的类似操作组合成一个单独的硬件操作。因此可以将多个离散计算合并为一个，从而减少在多个离散计算中的内存移动次数。
+Megatron-LM 帶有一個高效的 DataLoader，其中資料在訓練前被 tokenize 和 shuffle。它還將資料拆分為帶有索引的編號序列，並將索引儲存，因此 tokenize 只需要計算一次。為了構建索引，首先根據訓練引數計算每個 epoch 的數量，並建立一個排序，然後對資料進行 shuffle 操作。這與大多數情況不同，我們通常迭代整個資料集直到其用盡，然後重複第二個 epoch 。這平滑了學習曲線並節省了訓練時間。
 
 
-当 f、g 和 h 融合在一个内核中时，f 和 g 的中间结果 x' 和 y' 存储在 GPU 寄存器中并立即被 h 使用。但是如果不融合，x' 和 y' 就需要复制到内存中，然后由 h 加载。因此，融合 CUDA 内核显着加快了计算速度。此外，Megatron-LM 还使用 Apex 的 AdamW 融合实现，它比 PyTorch 实现更快。
+### 融合 CUDA 核心
+當一個計算在 GPU 上執行時，必要的資料會從記憶體中取出並載入到 GPU 上，然後計算結果被儲存回記憶體。簡單來說，融合核心的思想是: 將通常由 PyTorch 單獨執行的類似操作組合成一個單獨的硬體操作。因此可以將多個離散計算合併為一個，從而減少在多個離散計算中的記憶體移動次數。
 
-虽然我们可以在 transformers 中自定义 Megatron-LM 中的 DataLoader 和 Apex 的融合优化器，但自定义融合 CUDA 内核对新手来说太不友好了。
+
+當 f、g 和 h 融合在一個核心中時，f 和 g 的中間結果 x' 和 y' 儲存在 GPU 暫存器中並立即被 h 使用。但是如果不融合，x' 和 y' 就需要複製到記憶體中，然後由 h 載入。因此，融合 CUDA 核心顯著加快了計算速度。此外，Megatron-LM 還使用 Apex 的 AdamW 融合實現，它比 PyTorch 實現更快。
+
+雖然我們可以在 transformers 中自定義 Megatron-LM 中的 DataLoader 和 Apex 的融合最佳化器，但自定義融合 CUDA 核心對新手來說太不友好了。
 
 

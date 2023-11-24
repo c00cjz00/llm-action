@@ -4,21 +4,21 @@
 
 - https://pytorch.org/tutorials/intermediate/ddp_series_minGPT.html
 
-用于训练的文件：
+用於訓練的檔案：
 
-- trainer.py ：包含 Trainer 类，该类使用提供的数据集在模型上运行分布式训练迭代。
-- model.py ：定义模型架构。
-- char_dataset.py ：包含字符级数据集的 Dataset 类。
-- gpt2_train_cfg.yaml ：包含数据、模型、优化器和训练运行的配置。
-- main.py ：训练作业的入口点。 它设置 DDP 进程组，读取所有配置并运行训练作业。
-
-
+- trainer.py ：包含 Trainer 類，該類使用提供的資料集在模型上執行分散式訓練迭代。
+- model.py ：定義模型架構。
+- char_dataset.py ：包含字元級資料集的 Dataset 類。
+- gpt2_train_cfg.yaml ：包含資料、模型、最佳化器和訓練執行的配置。
+- main.py ：訓練作業的入口點。 它設定 DDP 程序組，讀取所有配置並執行訓練作業。
 
 
 
 
 
-## 单机多卡
+
+
+## 單機多卡
 
 
 ```
@@ -84,7 +84,7 @@ Snapshot saved at epoch 9
 [GPU1] Epoch 10 | Iter 0 | Eval Loss 1.13287
 ```
 
-## 多机多卡
+## 多機多卡
 
 
 ### 方案一
@@ -109,7 +109,7 @@ main.py
 slurm/sbatch_run.sh
 ```
 
-日志：
+日誌：
 
 ```
 > tail -100f slurm-949.out
@@ -225,7 +225,7 @@ pytorch-multinode.sif
 ```
 
 
-### 单机多卡
+### 單機多卡
 ```
 
 singularity run --nv \
@@ -237,7 +237,7 @@ torchrun --standalone --nproc_per_node=4 main.py
 ```
 
 
-### 多级多卡
+### 多級多卡
 ```
 
 singularity run --nv \

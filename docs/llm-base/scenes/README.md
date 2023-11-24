@@ -1,131 +1,131 @@
 
 
-## 任务合集
+## 任務合集
 
 ```
-句子嵌入（Sentence Embedding）：将句子映射到固定维度的向量表示形式。
-文本排序（Text Ranking）：对一组文本进行排序，以确定它们与给定查询的相关性。
-分词（Word Segmentation）：将连续的文本切分成单词或词块的过程。
-词性标注（Part-of-Speech）：对句子中的每个词汇标注其相应的词性。
-标记分类（Token Classification）：将输入的文本序列中的每个标记分类为预定义的类别。
-命名实体识别（Named Entity Recognition）：识别文本中具有特定意义的命名实体，如人名、地点、组织等。
-关系抽取（Relation Extraction）：从文本中抽取出实体之间的关系或联系。
-信息抽取（Information Extraction）：从非结构化文本中提取结构化的信息，如实体、关系和属性等。
-句子相似度（Sentence Similarity）：衡量两个句子之间的语义相似度或相关性。
-文本翻译（Translation）：将一种语言的文本转换为另一种语言的过程。
-自然语言推理（NLI：Natural Language Inference）：判断给定的前提和假设之间的逻辑关系，包括蕴含、矛盾和中立等。
-情感分类（Sentiment Classification）：将文本分为积极、消极或中性等情感类别。
-人像抠图（Portrait Matting）：从图像中准确地分离人物主体与背景。
-通用抠图（Universal Matting）：从图像中准确地分离目标物体与背景，不限于人像。
-人体检测（Human Detection）：检测图像或视频中的人体位置。
-图像目标检测（Image Object Detection）：在图像中检测和定位多个目标对象。
-图像去噪（Image Denoising）：降低图像中的噪声水平，改善图像质量。
-图像去模糊（Image Deblurring）：恢复模糊图像的清晰度和细节。
-视频稳定化（Video Stabilization）：对视频进行抖动校正，使其稳定且平滑。
-视频超分辨率（Video Super-Resolution）：通过增加视频的像素级别细节来提高其分辨率。
-文本分类（Text Classification）：将文本分类为预定义的类别或标签。
-文本生成（Text Generation）：根据给定输入生成连续文本的过程。
-零样本分类（Zero-Shot Classification）：将数据分类为模型从未在训练阶段见过的类别。
-任务导向对话（Task-Oriented Conversation）：进行与特定任务相关的对话和问答。
-对话状态跟踪（Dialog State Tracking）：跟踪多轮对话中的用户意图和系统状态的变化。
-表格问答（Table Question Answering）：根据表格数据回答相关问题。
-文档导向对话生成（Document-Grounded Dialog Generation）：基于文档内容生成相关对话回复。
-文档导向对话重新排序（Document-Grounded Dialog Rerank）：对生成的对话回复进行排序，以选择最佳回复。
-文档导向对话检索（Document-Grounded Dialog Retrieval）：从候选对话中检索与文档相关的最佳对话。
-文本纠错（Text Error Correction）：自动纠正文本中的拼写错误或语法错误。
-图像字幕生成（Image Captioning）：根据图像内容生成对图像的描述性文字。
-视频字幕生成（Video Captioning）：根据视频内容生成对视频的描述性文字。
-图像人像风格化（Image Portrait Stylization）：将图像中的人物主体应用艺术风格转换。
-光学字符识别（OCR Detection）：从图像中检测和识别文字。
-表格识别（Table Recognition）：从图像中自动识别表格结构和内容。
-无线表格识别（Lineless Table Recognition）：从无线表格图像中自动识别表格结构和内容。
-文档视觉语义嵌入（Document-VL Embedding）：将文档映射到视觉语义空间的向量表示形式。
-车牌检测（License Plate Detection）：在图像中检测和定位车辆的车牌区域。
-填充掩码（Fill-Mask）：根据上下文和部分信息填充给定的掩码。
-特征提取（Feature Extraction）：从输入数据中提取有意义的特征表示。
-动作识别（Action Recognition）：识别视频中的动作或行为。
-动作检测（Action Detection）：在视频中检测和定位特定动作或行为。
-直播分类（Live Category）：对直播视频进行分类，如体育、新闻、游戏等。
-视频分类（Video Category）：对视频进行分类，如电影、音乐、体育等。
-多模态嵌入（Multi-Modal Embedding）：将多种不同模态的数据映射到共享的向量空间。
-生成式多模态嵌入（Generative Multi-Modal Embedding）：将多模态数据映射到向量表示，并且能够生成与之相关的数据。
-多模态相似度（Multi-Modal Similarity）：衡量多模态数据（例如图像和文本）之间的相似性或相关性。
-视觉问答（Visual Question Answering）：根据给定的图像和问题回答相关问题。
-视频问答（Video Question Answering）：根据给定的视频和问题回答相关问题。
-视频嵌入（Video Embedding）：将视频序列映射到固定维度的向量表示形式。
-文本到图像合成（Text-to-Image Synthesis）：根据给定的文本描述合成相应的图像。
-文本到视频合成（Text-to-Video Synthesis）：根据给定的文本描述合成相应的视频。
-人体二维关键点（Body 2D Keypoints）：检测和跟踪图像中的人体关键点。
-人体三维关键点（Body 3D Keypoints）：在三维空间中检测和跟踪人体关键点。
-手部二维关键点（Hand 2D Keypoints）：检测和跟踪图像中的手部关键点。
-卡片检测（Card Detection）：在图像中检测和定位特定类型的卡片。
-内容检查（Content Check）：检查文本或图像中是否存在不良、敏感或违法内容。
-人脸检测（Face Detection）：检测图像或视频中的人脸位置。
-人脸活体检测（Face Liveness）：判断图像或视频中的人脸是否为真实的活体，而非照片或视频。
-人脸识别（Face Recognition）：识别图像或视频中的人脸，并将其与已知的身份进行匹配。
-面部表情识别（Facial Expression Recognition）：识别图像或视频中人脸的表情状态，如快乐、悲伤、愤怒等。
-面部属性识别（Face Attribute Recognition）：识别图像或视频中人脸的属性，如年龄、性别、种族等。
-面部二维关键点（Face 2D Keypoints）：检测和跟踪图像中的面部关键点。
-面部质量评估（Face Quality Assessment）：评估图像或视频中人脸图像的质量。
-视频多模态嵌入（Video Multi-Modal Embedding）：将多模态数据（如图像和文本）映射到共享的向量空间。
-图像色彩增强（Image Color Enhancement）：增强图像的色彩饱和度、对比度和亮度等。
-虚拟试衣（Virtual Try-On）：通过计算机生成的技术，将虚拟服装应用到真实人体图像上，以实现在线试穿效果。
-图像上色（Image Colorization）：将灰度图像恢复为彩色图像的过程。
-视频上色（Video Colorization）：将黑白视频恢复为彩色视频的过程。
-图像分割（Image Segmentation）：将图像分成多个不同的区域或对象。
-图像驾驶感知（Image Driving Perception）：利用计算机视觉技术提取图像中与驾驶相关的信息，如车道线、交通标志等。
-图像深度估计（Image Depth Estimation）：根据单目或双目图像估计场景中物体的深度或距离。
-室内布局估计（Indoor Layout Estimation）：根据室内图像估计房间的布局结构。
-视频深度估计（Video Depth Estimation）：根据视频中的帧间信息估计场景中物体的深度或距离。
-全景深度估计（Panorama Depth Estimation）：在全景图像中估计场景中物体的深度或距离。
-图像风格迁移（Image Style Transfer）：将一个图像的风格应用到另一个图像上，以生成具有新风格的图像。
-面部图像生成（Face Image Generation）：生成逼真的面部图像，可以用于人脸数据增强、数据生成等应用。
-图像超分辨率（Image Super-Resolution）：通过增加图像的像素级细节来提高其分辨率。
-图像去块效应（Image Debanding）：减少图像中由压缩引起的块状伪影或条纹噪声。
-图像人像增强（Image Portrait Enhancement）：改善图像中人物主体的外观、肤色等特征。
-商品检索嵌入（Product Retrieval Embedding）：将商品映射到向量表示形式，以支持商品相关性检索。
-图像到图像生成（Image-to-Image Generation）：根据给定的输入图像生成相应的输出图像。
-图像分类（Image Classification）：将图像分类为预定义的类别或标签。
-光学字符识别（OCR Recognition）：从图像中检测和识别印刷体或手写体的文字。
-美肤（Skin Retouching）：对人脸图像进行美化处理，去除皮肤瑕疵、磨皮等。
-常见问题解答（FAQ Question Answering）：根据常见问题回答用户的提问。
-人群计数（Crowd Counting）：根据图像或视频中的人群密度估计人数。
-视频单目标跟踪（Video Single Object Tracking）：在视频序列中跟踪单个目标对象。
-图像人物再识别（Image ReID - Person）：根据图像中的人物外观特征进行身份再识别。
-文本驱动分割（Text-Driven Segmentation）：根据给定的文本描述，对图像或视频中的对象进行分割。
-电影场景分割（Movie Scene Segmentation）：将电影或视频分割为不同的场景，每个场景代表一个独立的情节或事件。
-商店分割（Shop Segmentation）：将商店内的物体或区域从图像或视频中分割出来，用于商品展示、智能监控等应用。
-图像修复（Image Inpainting）：根据已有的图像内容，填补缺失或损坏的部分，恢复原始图像的完整性。
-图像按范例绘制（Image Paint-By-Example）：根据给定的范例图像，将其他图像修改为具有相似绘画风格或效果的图像。
-可控图像生成（Controllable Image Generation）：通过控制输入参数或向量，生成具有特定属性、风格或特征的图像。
-视频修复（Video Inpainting）：根据已有的视频内容，填补缺失或损坏的帧或区域，恢复原始视频的完整性。
-视频人像抠像（Video Human Matting）：将视频中的人物从背景中分割出来，以便进行后续的编辑或特效处理。
-人体重建（Human Reconstruction）：基于给定的图像、视频或传感器数据，重建人体的三维模型或姿态信息。
-视频帧插值（Video Frame Interpolation）：对给定的两个视频帧之间的帧进行生成，以增加视频的帧率或平滑过渡。
-视频去隔行（Video Deinterlace）：将隔行扫描的视频转换为逐行扫描，提高视频播放的质量和流畅度。
-全身人体关键点检测（Human Wholebody Keypoint Detection）：在图像或视频中检测和定位人体的关键点，例如头部、手、脚等。
-静态手势识别（Hand Static）：通过分析手掌形状、手指姿势等信息，识别图像或视频中的静态手势。
-人脸、人体和手部检测（Face-Human-Hand Detection）：检测和定位图像或视频中的人脸、人体和手部区域。
-人脸情绪分析（Face Emotion）：通过分析人脸表情，判断图像或视频中人脸所表达的情绪状态。
-商品分割（Product Segmentation）：将图像或视频中的商品或产品从背景中分割出来，用于商品识别、广告推荐等应用。
-参考视频对象分割（Referring Video Object Segmentation）：根据给定的参考图像或视频，对图像或视频中的对象进行分割。
-视频摘要（Video Summarization）：根据视频的内容和特征，生成视频的摘要或概览，提供视频浏览和检索的便利性。
-图像天空变换（Image Sky Change）：将图像中的天空部分替换为不同的天空背景，改变图像的氛围和环境。
-翻译评估（Translation Evaluation）：根据给定的翻译结果，评估其质量、准确性以及与原文的一致性。
-视频对象分割（Video Object Segmentation）：将视频中的对象从背景中分割出来，以便进行后续的编辑或特效处理。
-视频多目标跟踪（Video Multi-Object Tracking）：在视频中同时跟踪多个移动目标，实时定位和追踪目标的位置。
-多视角深度估计（Multi-View Depth Estimation）：通过多个视图或图像，估计场景中物体的三维深度信息。
-少样本检测（Few-Shot Detection）：在只有少量标注样本的情况下，进行目标检测任务，提高模型的泛化能力。
-人体形状重塑（Body Reshaping）：根据图像或视频中的人体区域，调整人体的形状、姿态或比例，改变人体外貌。
-人脸融合（Face Fusion）：将一个人的面部特征或表情融合到另一个人的头像上，生成具有两者特点的合成图像。
-图像匹配（Image Matching）：在图像库或数据库中，找到与给定图像最相似或匹配的图像。
-图像质量评估 - 主观评分（Image Quality Assessment - MOS）：通过主观评分的方法，评估图像的质量，反映人眼对图像的感知。
-图像质量评估 - 降质度量（Image Quality Assessment - Degradation）：通过客观度量的方法，评估图像在不同变换或压缩条件下的质量。
-视觉高效调优（Vision Efficient Tuning）：通过自动化的方法，快速调优和优化视觉模型和算法，提升计算效率和准确性。
-三维目标检测（Object Detection 3D）：在三维空间中，检测和定位目标物体的位置、尺寸和姿态。
-坏图像检测（Bad Image Detecting）：识别和检测出图像中存在的噪点、模糊、失真等不良或低质量的图像。
-Nerf重建精度评估（NeRF Reconstruction Accuracy）：评估神经辐射场(NeRF)模型在建立3D场景重建时的准确性和质量。
-Siamese UIE：Siamese网络用于UIE任务，即输入用户界面元素识别或生成的相关问题。
-数学公式识别（LatexOCR）：图片中数学公式的latex识别。
+句子嵌入（Sentence Embedding）：將句子對映到固定維度的向量表示形式。
+文字排序（Text Ranking）：對一組文字進行排序，以確定它們與給定查詢的相關性。
+分詞（Word Segmentation）：將連續的文字切分成單詞或詞塊的過程。
+詞性標註（Part-of-Speech）：對句子中的每個詞彙標註其相應的詞性。
+標記分類（Token Classification）：將輸入的文字序列中的每個標記分類為預定義的類別。
+命名實體識別（Named Entity Recognition）：識別文字中具有特定意義的命名實體，如人名、地點、組織等。
+關係抽取（Relation Extraction）：從文字中抽取出實體之間的關係或聯絡。
+資訊抽取（Information Extraction）：從非結構化文字中提取結構化的資訊，如實體、關係和屬性等。
+句子相似度（Sentence Similarity）：衡量兩個句子之間的語義相似度或相關性。
+文字翻譯（Translation）：將一種語言的文字轉換為另一種語言的過程。
+自然語言推理（NLI：Natural Language Inference）：判斷給定的前提和假設之間的邏輯關係，包括蘊含、矛盾和中立等。
+情感分類（Sentiment Classification）：將文字分為積極、消極或中性等情感類別。
+人像摳圖（Portrait Matting）：從影象中準確地分離人物主體與背景。
+通用摳圖（Universal Matting）：從影象中準確地分離目標物體與背景，不限於人像。
+人體檢測（Human Detection）：檢測影象或影片中的人體位置。
+影象目標檢測（Image Object Detection）：在影象中檢測和定位多個目標物件。
+影象去噪（Image Denoising）：降低影象中的噪聲水平，改善影象質量。
+影象去模糊（Image Deblurring）：恢復模糊影象的清晰度和細節。
+影片穩定化（Video Stabilization）：對影片進行抖動校正，使其穩定且平滑。
+影片超解析度（Video Super-Resolution）：透過增加影片的畫素級別細節來提高其解析度。
+文字分類（Text Classification）：將文字分類為預定義的類別或標籤。
+文字生成（Text Generation）：根據給定輸入生成連續文字的過程。
+零樣本分類（Zero-Shot Classification）：將資料分類為模型從未在訓練階段見過的類別。
+任務導向對話（Task-Oriented Conversation）：進行與特定任務相關的對話和問答。
+對話狀態跟蹤（Dialog State Tracking）：跟蹤多輪對話中的使用者意圖和系統狀態的變化。
+表格問答（Table Question Answering）：根據表格資料回答相關問題。
+文件導向對話生成（Document-Grounded Dialog Generation）：基於文件內容生成相關對話回覆。
+文件導向對話重新排序（Document-Grounded Dialog Rerank）：對生成的對話回覆進行排序，以選擇最佳回覆。
+文件導向對話檢索（Document-Grounded Dialog Retrieval）：從候選對話中檢索與文件相關的最佳對話。
+文字糾錯（Text Error Correction）：自動糾正文字中的拼寫錯誤或語法錯誤。
+影象字幕生成（Image Captioning）：根據影象內容生成對影象的描述性文字。
+影片字幕生成（Video Captioning）：根據影片內容生成對影片的描述性文字。
+影象人像風格化（Image Portrait Stylization）：將影象中的人物主體應用藝術風格轉換。
+光學字元識別（OCR Detection）：從影象中檢測和識別文字。
+表格識別（Table Recognition）：從影象中自動識別表格結構和內容。
+無線表格識別（Lineless Table Recognition）：從無線表格影象中自動識別表格結構和內容。
+文件視覺語義嵌入（Document-VL Embedding）：將文件對映到視覺語義空間的向量表示形式。
+車牌檢測（License Plate Detection）：在影象中檢測和定位車輛的車牌區域。
+填充掩碼（Fill-Mask）：根據上下文和部分資訊填充給定的掩碼。
+特徵提取（Feature Extraction）：從輸入資料中提取有意義的特徵表示。
+動作識別（Action Recognition）：識別影片中的動作或行為。
+動作檢測（Action Detection）：在影片中檢測和定位特定動作或行為。
+直播分類（Live Category）：對直播影片進行分類，如體育、新聞、遊戲等。
+影片分類（Video Category）：對影片進行分類，如電影、音樂、體育等。
+多模態嵌入（Multi-Modal Embedding）：將多種不同模態的資料對映到共享的向量空間。
+生成式多模態嵌入（Generative Multi-Modal Embedding）：將多模態資料對映到向量表示，並且能夠生成與之相關的資料。
+多模態相似度（Multi-Modal Similarity）：衡量多模態資料（例如影象和文字）之間的相似性或相關性。
+視覺問答（Visual Question Answering）：根據給定的影象和問題回答相關問題。
+影片問答（Video Question Answering）：根據給定的影片和問題回答相關問題。
+影片嵌入（Video Embedding）：將影片序列對映到固定維度的向量表示形式。
+文字到影象合成（Text-to-Image Synthesis）：根據給定的文字描述合成相應的影象。
+文字到影片合成（Text-to-Video Synthesis）：根據給定的文字描述合成相應的影片。
+人體二維關鍵點（Body 2D Keypoints）：檢測和跟蹤影象中的人體關鍵點。
+人體三維關鍵點（Body 3D Keypoints）：在三維空間中檢測和跟蹤人體關鍵點。
+手部二維關鍵點（Hand 2D Keypoints）：檢測和跟蹤影象中的手部關鍵點。
+卡片檢測（Card Detection）：在影象中檢測和定位特定型別的卡片。
+內容檢查（Content Check）：檢查文字或影象中是否存在不良、敏感或違法內容。
+人臉檢測（Face Detection）：檢測影象或影片中的人臉位置。
+人臉活體檢測（Face Liveness）：判斷影象或影片中的人臉是否為真實的活體，而非照片或影片。
+人臉識別（Face Recognition）：識別影象或影片中的人臉，並將其與已知的身份進行匹配。
+面部表情識別（Facial Expression Recognition）：識別影象或影片中人臉的表情狀態，如快樂、悲傷、憤怒等。
+面部屬性識別（Face Attribute Recognition）：識別影象或影片中人臉的屬性，如年齡、性別、種族等。
+面部二維關鍵點（Face 2D Keypoints）：檢測和跟蹤影象中的面部關鍵點。
+面部質量評估（Face Quality Assessment）：評估影象或影片中人臉影象的質量。
+影片多模態嵌入（Video Multi-Modal Embedding）：將多模態資料（如影象和文字）對映到共享的向量空間。
+影象色彩增強（Image Color Enhancement）：增強影象的色彩飽和度、對比度和亮度等。
+虛擬試衣（Virtual Try-On）：透過計算機生成的技術，將虛擬服裝應用到真實人體影象上，以實現線上試穿效果。
+影象上色（Image Colorization）：將灰度影象恢復為彩色影象的過程。
+影片上色（Video Colorization）：將黑白影片恢復為彩色影片的過程。
+影象分割（Image Segmentation）：將影象分成多個不同的區域或物件。
+影象駕駛感知（Image Driving Perception）：利用計算機視覺技術提取影象中與駕駛相關的資訊，如車道線、交通標誌等。
+影象深度估計（Image Depth Estimation）：根據單目或雙目影象估計場景中物體的深度或距離。
+室內佈局估計（Indoor Layout Estimation）：根據室內影象估計房間的佈局結構。
+影片深度估計（Video Depth Estimation）：根據影片中的幀間資訊估計場景中物體的深度或距離。
+全景深度估計（Panorama Depth Estimation）：在全景影象中估計場景中物體的深度或距離。
+影象風格遷移（Image Style Transfer）：將一個影象的風格應用到另一個影象上，以生成具有新風格的影象。
+面部影象生成（Face Image Generation）：生成逼真的面部影象，可以用於人臉資料增強、資料生成等應用。
+影象超解析度（Image Super-Resolution）：透過增加影象的畫素級細節來提高其解析度。
+影象去塊效應（Image Debanding）：減少影象中由壓縮引起的塊狀偽影或條紋噪聲。
+影象人像增強（Image Portrait Enhancement）：改善影象中人物主體的外觀、膚色等特徵。
+商品檢索嵌入（Product Retrieval Embedding）：將商品對映到向量表示形式，以支援商品相關性檢索。
+影象到影象生成（Image-to-Image Generation）：根據給定的輸入影象生成相應的輸出影象。
+影象分類（Image Classification）：將影象分類為預定義的類別或標籤。
+光學字元識別（OCR Recognition）：從影象中檢測和識別印刷體或手寫體的文字。
+美膚（Skin Retouching）：對人臉影象進行美化處理，去除皮膚瑕疵、磨皮等。
+常見問題解答（FAQ Question Answering）：根據常見問題回答使用者的提問。
+人群計數（Crowd Counting）：根據影象或影片中的人群密度估計人數。
+影片單目標跟蹤（Video Single Object Tracking）：在影片序列中跟蹤單個目標物件。
+影象人物再識別（Image ReID - Person）：根據影象中的人物外觀特徵進行身份再識別。
+文字驅動分割（Text-Driven Segmentation）：根據給定的文字描述，對影象或影片中的物件進行分割。
+電影場景分割（Movie Scene Segmentation）：將電影或影片分割為不同的場景，每個場景代表一個獨立的情節或事件。
+商店分割（Shop Segmentation）：將商店內的物體或區域從影象或影片中分割出來，用於商品展示、智慧監控等應用。
+影象修復（Image Inpainting）：根據已有的影象內容，填補缺失或損壞的部分，恢復原始影象的完整性。
+影象按範例繪製（Image Paint-By-Example）：根據給定的範例影象，將其他影象修改為具有相似繪畫風格或效果的影象。
+可控影象生成（Controllable Image Generation）：透過控制輸入引數或向量，生成具有特定屬性、風格或特徵的影象。
+影片修復（Video Inpainting）：根據已有的影片內容，填補缺失或損壞的幀或區域，恢復原始影片的完整性。
+影片人像摳像（Video Human Matting）：將影片中的人物從背景中分割出來，以便進行後續的編輯或特效處理。
+人體重建（Human Reconstruction）：基於給定的影象、影片或感測器資料，重建人體的三維模型或姿態資訊。
+影片幀插值（Video Frame Interpolation）：對給定的兩個影片幀之間的幀進行生成，以增加影片的幀率或平滑過渡。
+影片去隔行（Video Deinterlace）：將隔行掃描的影片轉換為逐行掃描，提高影片播放的質量和流暢度。
+全身人體關鍵點檢測（Human Wholebody Keypoint Detection）：在影象或影片中檢測和定位人體的關鍵點，例如頭部、手、腳等。
+靜態手勢識別（Hand Static）：透過分析手掌形狀、手指姿勢等資訊，識別影象或影片中的靜態手勢。
+人臉、人體和手部檢測（Face-Human-Hand Detection）：檢測和定點陣圖像或影片中的人臉、人體和手部區域。
+人臉情緒分析（Face Emotion）：透過分析人臉表情，判斷影象或影片中人臉所表達的情緒狀態。
+商品分割（Product Segmentation）：將影象或影片中的商品或產品從背景中分割出來，用於商品識別、廣告推薦等應用。
+參考影片物件分割（Referring Video Object Segmentation）：根據給定的參考影象或影片，對影象或影片中的物件進行分割。
+影片摘要（Video Summarization）：根據影片的內容和特徵，生成影片的摘要或概覽，提供影片瀏覽和檢索的便利性。
+影象天空變換（Image Sky Change）：將影象中的天空部分替換為不同的天空背景，改變影象的氛圍和環境。
+翻譯評估（Translation Evaluation）：根據給定的翻譯結果，評估其質量、準確性以及與原文的一致性。
+影片物件分割（Video Object Segmentation）：將影片中的物件從背景中分割出來，以便進行後續的編輯或特效處理。
+影片多目標跟蹤（Video Multi-Object Tracking）：在影片中同時跟蹤多個移動目標，實時定位和追蹤目標的位置。
+多視角深度估計（Multi-View Depth Estimation）：透過多個檢視或影象，估計場景中物體的三維深度資訊。
+少樣本檢測（Few-Shot Detection）：在只有少量標註樣本的情況下，進行目標檢測任務，提高模型的泛化能力。
+人體形狀重塑（Body Reshaping）：根據影象或影片中的人體區域，調整人體的形狀、姿態或比例，改變人體外貌。
+人臉融合（Face Fusion）：將一個人的面部特徵或表情融合到另一個人的頭像上，生成具有兩者特點的合成影象。
+影象匹配（Image Matching）：在影象庫或資料庫中，找到與給定影象最相似或匹配的影象。
+影象質量評估 - 主觀評分（Image Quality Assessment - MOS）：透過主觀評分的方法，評估影象的質量，反映人眼對影象的感知。
+影象質量評估 - 降質度量（Image Quality Assessment - Degradation）：透過客觀度量的方法，評估影象在不同變換或壓縮條件下的質量。
+視覺高效調優（Vision Efficient Tuning）：透過自動化的方法，快速調優和最佳化視覺模型和演算法，提升計算效率和準確性。
+三維目標檢測（Object Detection 3D）：在三維空間中，檢測和定位目標物體的位置、尺寸和姿態。
+壞影象檢測（Bad Image Detecting）：識別和檢測出影象中存在的噪點、模糊、失真等不良或低質量的影象。
+Nerf重建精度評估（NeRF Reconstruction Accuracy）：評估神經輻射場(NeRF)模型在建立3D場景重建時的準確性和質量。
+Siamese UIE：Siamese網路用於UIE任務，即輸入使用者介面元素識別或生成的相關問題。
+數學公式識別（LatexOCR）：圖片中數學公式的latex識別。
 ```
 

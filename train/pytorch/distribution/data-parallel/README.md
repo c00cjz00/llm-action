@@ -7,9 +7,9 @@
 
 
 
-## 数据并行
+## 資料並行
 
-当一张 GPU 可以存储一个模型时，可以采用数据并行得到更准确的梯度或者加速训练，即每个 GPU 复制一份模型，将一批样本分为多份输入各个模型并行计算。因为求导以及加和都是线性的，数据并行在数学上也有效。
+當一張 GPU 可以儲存一個模型時，可以採用資料並行得到更準確的梯度或者加速訓練，即每個 GPU 複製一份模型，將一批樣本分為多份輸入各個模型平行計算。因為求導以及加和都是線性的，資料並行在數學上也有效。
 
 ## DP
 
@@ -21,24 +21,24 @@ model = nn.DataParallel(model)
 ## DDP
 
 
-DDP 通过 Reducer 来管理梯度同步。为了提高通讯效率， Reducer 会将梯度归到不同的桶里（按照模型参数的 reverse order， 因为反向传播需要符合这样的顺序），一次归约一个桶。其中，桶的大小为参数 bucket_cap_mb 默认为 25，可根据需要调整。
+DDP 透過 Reducer 來管理梯度同步。為了提高通訊效率， Reducer 會將梯度歸到不同的桶裡（按照模型引數的 reverse order， 因為反向傳播需要符合這樣的順序），一次歸約一個桶。其中，桶的大小為引數 bucket_cap_mb 預設為 25，可根據需要調整。
 
 
-可以看到每个进程里，模型参数都按照倒序放在桶里，每次归约一个桶。
+可以看到每個程序裡，模型引數都按照倒序放在桶裡，每次歸約一個桶。
 
 
-DDP 通过在构建时注册 autograd hook 进行梯度同步。反向传播时，当一个梯度计算好后，相应的 hook 会告诉 DDP 可以用来归约。
+DDP 透過在構建時註冊 autograd hook 進行梯度同步。反向傳播時，當一個梯度計算好後，相應的 hook 會告訴 DDP 可以用來歸約。
 
-当一个桶里的梯度都可以了，Reducer 就会启动异步 allreduce 去计算所有进程的平均值。allreduce 异步启动使得 DDP 可以边计算边通信，提高效率。
+當一個桶裡的梯度都可以了，Reducer 就會啟動非同步 allreduce 去計算所有程序的平均值。allreduce 非同步啟動使得 DDP 可以邊計算邊通訊，提高效率。
 
-当所有桶都可以了，Reducer 会等所有 allreduce 完成，然后将得到的梯度写到 param.grad。
+當所有桶都可以了，Reducer 會等所有 allreduce 完成，然後將得到的梯度寫到 param.grad。
 
 
 
 
 ### DDP+MP
 
-DDP与流水线并行。
+DDP與流水線並行。
 
 
 
@@ -50,7 +50,7 @@ DDP与流水线并行。
 
 
 
-通过 launch.py 启动，在 8 个 GPU 节点上，每个 GPU 一个进程：
+透過 launch.py 啟動，在 8 個 GPU 節點上，每個 GPU 一個程序：
 ```
 python /home/guodong.li/virtual-venv/megatron-ds-venv-py310-cu117/lib/python3.10/site-packages/torch/distributed/launch.py --nnode=1 --node_rank=0 --nproc_per_node=8 example.py --local_world_size=8
 
@@ -68,31 +68,31 @@ python /home/guodong.li/virtual-venv/megatron-ds-venv-py310-cu117/lib/python3.10
 torchrun --nnodes=2 --nproc_per_node=8 --rdzv_id=100 --rdzv_backend=c10d --rdzv_endpoint=$MASTER_ADDR:29400 elastic_ddp.py
 ```
 
-我们在两台主机上运行 DDP 脚本，每台主机运行 8 个进程，也就是说，我们在 16 个 GPU 上运行它。 
+我們在兩臺主機上執行 DDP 指令碼，每臺主機執行 8 個程序，也就是說，我們在 16 個 GPU 上執行它。 
 
-请注意，所有节点上的 $MASTER_ADDR 必须相同。
+請注意，所有節點上的 $MASTER_ADDR 必須相同。
 
-这里torchrun将启动8个进程，并在启动它的节点上的每个进程上调用elastic_ddp.py，
-但用户还需要应用slurm等集群管理工具才能在2个节点上实际运行此命令。
+這裡torchrun將啟動8個程序，並在啟動它的節點上的每個程序上呼叫elastic_ddp.py，
+但使用者還需要應用slurm等叢集管理工具才能在2個節點上實際執行此命令。
 
 
-例如，在启用 SLURM 的集群上，我们可以编写一个脚本来运行上面的命令并将 MASTER_ADDR 设置为：
+例如，在啟用 SLURM 的叢集上，我們可以編寫一個指令碼來執行上面的命令並將 MASTER_ADDR 設定為：
 
 ```
 export MASTER_ADDR=$(scontrol show hostname ${SLURM_NODELIST} | head -n 1)
 ```
 
-然后我们可以使用 SLURM 命令运行此脚本：
+然後我們可以使用 SLURM 命令執行此指令碼：
 
 ```
 srun --nodes=2 ./torchrun_script.sh
 ```
 
-当然，这只是一个例子； 您可以选择自己的集群调度工具来启动torchrun作业。
+當然，這只是一個例子； 您可以選擇自己的叢集排程工具來啟動torchrun作業。
 
 
 
-- 详细启动命令：https://pytorch.org/docs/stable/elastic/quickstart.html
+- 詳細啟動命令：https://pytorch.org/docs/stable/elastic/quickstart.html
 
 
 
@@ -111,11 +111,11 @@ torchrun --nnodes=2 --nproc_per_node=8 --node_rank=1 --rdzv_id=100 --rdzv_backen
 
 
 
-## 官方文档
+## 官方文件
 - DDP 教程：https://pytorch.org/tutorials/intermediate/ddp_tutorial.html
-- DDP 设计：https://pytorch.org/docs/master/notes/ddp.html
+- DDP 設計：https://pytorch.org/docs/master/notes/ddp.html
 - DDP 示例：
-	- https://github.com/pytorch/examples/tree/main/distributed/ddp (官方没有更新了)
+	- https://github.com/pytorch/examples/tree/main/distributed/ddp (官方沒有更新了)
 	- https://github.com/pytorch/examples/tree/main/distributed/ddp-tutorial-series
 
 

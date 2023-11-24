@@ -1,5 +1,5 @@
 
-镜像下载地址：https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch
+映象下載地址：https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch
 
 ## FP16
 ```
@@ -41,11 +41,11 @@ make -j12
 
 ## FP8
 
-拉取镜像：
+拉取映象：
 ```
 docker pull nvcr.io/nvidia/pytorch:22.10-py3
 ```
-创建并启动容器：
+建立並啟動容器：
 ```
 nvidia-docker run -dti --name faster_transformer_fp8 \
 --restart=always --gpus all --network=host \
@@ -58,7 +58,7 @@ bash
 sudo docker exec -it faster_transformer_fp8 bash
 ```
 
-拉取代码：
+拉取程式碼：
 ```
 cd code
 git clone https://github.com/NVIDIA/FasterTransformer.git
@@ -76,7 +76,7 @@ git submodule init && git submodule update
 cmake -DSM=90 -DCMAKE_BUILD_TYPE=Release -DBUILD_PYT=ON -DBUILD_MULTI_GPU=ON -DENABLE_FP8=ON ..
 ```
 
-运行过程：
+執行過程：
 ```
 > cmake -DSM=90 -DCMAKE_BUILD_TYPE=Release -DBUILD_PYT=ON -DBUILD_MULTI_GPU=ON -DENABLE_FP8=ON ..
 -- The CXX compiler identification is GNU 9.4.0
@@ -181,7 +181,7 @@ Call Stack (most recent call first):
 make -j12
 ```
 
-运行过程：
+執行過程：
 ```
 > make -j12
 [  0%] Building CXX object src/fastertransformer/utils/CMakeFiles/logger.dir/logger.cc.o

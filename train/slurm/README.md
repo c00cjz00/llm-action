@@ -1,19 +1,19 @@
 
 
-- srun文档： https://slurm.schedmd.com/srun.html
+- srun文件： https://slurm.schedmd.com/srun.html
 
 
 ## pytorch
 
 
 
-### 单机多卡
+### 單機多卡
 ```
 
 ```
 
 
-### 多机多卡
+### 多機多卡
 
 
 ```
@@ -24,14 +24,14 @@
 ## deepspeed
 
 
-### 单机多卡
+### 單機多卡
 
 ```
 deepspeed --include localhost:0,1,2,3 train.py --deepspeed_config=ds_config.json -p 2 --steps=200
 ```
 
 
-### 多机多卡
+### 多機多卡
 
 ```
 python -m torch.distributed.run --nproc_per_node=2 --nnode=2 --node_rank=0 --master_addr=10.99.2.xx \
@@ -43,7 +43,7 @@ python -m torch.distributed.run --nproc_per_node=2 --nnode=2 --node_rank=1 --mas
 ```
 
 
-### 单机多卡+docker
+### 單機多卡+docker
 
 ```
 sudo docker run -it --rm --gpus all \
@@ -58,7 +58,7 @@ deepspeed --include localhost:4,5,6,7 --master_port 29001 train.py --deepspeed_c
 ```
 
 
-### 单机多卡+singularity
+### 單機多卡+singularity
 
 
 ```
@@ -76,7 +76,7 @@ deepspeed.sif
 export NCCL_IB_DISABLE=1 && export NCCL_SOCKET_IFNAME=bond0 && export CC=/opt/hpcx/ompi/bin/mpicc && deepspeed --include localhost:4,5,6,7 --master_port 29001 train.py --deepspeed_config=ds_config.json -p 2 --steps=200
 ```
 
-### 单机多卡+singularity+slurm 
+### 單機多卡+singularity+slurm 
 
 
 ```
@@ -98,10 +98,10 @@ srun --mpi=list
 
 
 
-### 多机多卡+singularity+slurm 
+### 多機多卡+singularity+slurm 
 
 
-- --mpi：指定mpi类型为pmi2
+- --mpi：指定mpi型別為pmi2
 
 ```
 sbatch pp-multinode-singularity.slurm

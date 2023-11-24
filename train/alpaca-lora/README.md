@@ -1,7 +1,7 @@
 
 ## Alpaca-LoRA
 
-- 源码: https://github.com/tloen/alpaca-lora
+- 原始碼: https://github.com/tloen/alpaca-lora
 - commit id : 9de612e582ab86013b5d1c3be6b0ed9f5ab2065a
 
 
@@ -29,9 +29,9 @@ torchrun --nproc_per_node=8 --master_port=29005 finetune_metrics_epoch.py \
 
 
 
-| 模型 | 显存 | 耗时 | 数据量  |
+| 模型 | 視訊記憶體 | 耗時 | 資料量  |
 | --- | --- | --- |  --- |
-| 7B | 8 * 74G |  2小时5分钟 | 46818 |
+| 7B | 8 * 74G |  2小時5分鐘 | 46818 |
 
 ![image](https://github.com/liguodongiot/llm-action/assets/13220186/238d86da-bbda-4944-94e4-49a87284e026)
 
@@ -55,9 +55,9 @@ torchrun --nproc_per_node=8 --master_port=29005 finetune_metrics_epoch.py \
 --lora_r=16
 ```
 
-| 模型 | 显存 | 耗时 | 数据量  |
+| 模型 | 視訊記憶體 | 耗時 | 資料量  |
 | --- | --- | --- | --- |
-| 13B | 8 * 76G |  2小时10分钟 | 46818 |
+| 13B | 8 * 76G |  2小時10分鐘 | 46818 |
 
 ![image](https://github.com/liguodongiot/llm-action/assets/13220186/a66ea4a1-79fb-40d9-8a10-7a9132fde882)
 
@@ -78,7 +78,7 @@ torchrun --nproc_per_node=8 --master_port=29005 finetune_metrics_epoch.py \
 --lora_r=16
 ```
 
-训练过程：
+訓練過程：
 ```
 trainable params: 51118080 || all params: 32580061696 || trainable%: 0.15689988704433913
 
@@ -89,9 +89,9 @@ trainable params: 51118080 || all params: 32580061696 || trainable%: 0.156899887
 
 
 
-| 模型 | 显存 | 耗时 | 数据量  |
+| 模型 | 視訊記憶體 | 耗時 | 資料量  |
 | --- | --- | --- | --- |
-| 30B | 8 * 75G |  15小时30分钟 | 46818 |
+| 30B | 8 * 75G |  15小時30分鐘 | 46818 |
 
 ![image](https://github.com/liguodongiot/llm-action/assets/13220186/303b850c-3332-45aa-968d-bb0f52fa44a6)
 
@@ -122,12 +122,12 @@ torchrun --nproc_per_node=8 --master_port=29005 finetune.py \
 --num_epochs 3 
 ```
 
-## 测试用例
+## 測試用例
 
 ```
-请给我讲一个温馨的睡前故事
-如何快速提升自己的写作能力？
-计算以下表达式：(6+2)*(2-2)。
+請給我講一個溫馨的睡前故事
+如何快速提升自己的寫作能力？
+計算以下表達式：(6+2)*(2-2)。
 What are the five characteristics of a good argument?
 ```
 

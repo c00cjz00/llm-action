@@ -2,160 +2,160 @@
   <img src="https://github.com/liguodongiot/llm-action/blob/main/pic/llm-action.png" >
 </p>
 
-## 目录
+## 目錄
 
-- 🔥 [LLM训练](#llm训练)
-  - 🐫 [LLM训练实战](#llm训练实战)
-  - 🐼 [LLM参数高效微调技术原理综述](#llm微调技术原理)
-  - 🐰 [LLM参数高效微调技术实战](#llm微调实战)
-  - 🐘 [LLM分布式训练并行技术](#llm分布式训练并行技术)
-  - 🌋 [分布式AI框架](#分布式ai框架)
-  - 📡 [分布式训练网络通信](#分布式训练网络通信)
+- 🔥 [LLM訓練](#llm訓練)
+  - 🐫 [LLM訓練實戰](#llm訓練實戰)
+  - 🐼 [LLM引數高效微調技術原理綜述](#llm微調技術原理)
+  - 🐰 [LLM引數高效微調技術實戰](#llm微調實戰)
+  - 🐘 [LLM分散式訓練並行技術](#llm分散式訓練並行技術)
+  - 🌋 [分散式AI框架](#分散式ai框架)
+  - 📡 [分散式訓練網路通訊](#分散式訓練網路通訊)
 - 🐎 [LLM推理](#llm推理)
   - 🚀 [LLM推理框架](#llm推理框架)
-  - ✈️ [LLM推理优化技术](#llm推理优化技术)
-- ♻️ [LLM压缩](#llm压缩)
+  - ✈️ [LLM推理最佳化技術](#llm推理最佳化技術)
+- ♻️ [LLM壓縮](#llm壓縮)
   - 📐 [LLM量化](#llm量化)
   - 🔰 [LLM剪枝](#llm剪枝)
-  - 💹 [LLM知识蒸馏](#llm知识蒸馏)
+  - 💹 [LLM知識蒸餾](#llm知識蒸餾)
   - ♑️ [低秩分解](#低秩分解)
-- ♍️ [LLM算法架构](#llm算法架构)
-- :jigsaw: [LLM应用开发](#llm应用开发)
-- 🀄️ [LLM国产化适配](#llm国产化适配)
-- 🔯 [AI编译器](#ai编译器)
-- 🔘 [AI基础设施](#ai基础设施)
+- ♍️ [LLM演算法架構](#llm演算法架構)
+- :jigsaw: [LLM應用開發](#llm應用開發)
+- 🀄️ [LLM國產化適配](#llm國產化適配)
+- 🔯 [AI編譯器](#ai編譯器)
+- 🔘 [AI基礎設施](#ai基礎設施)
 - 💟 [LLMOps](#llmops)
-- 🍄 [LLM生态相关技术](#llm生态相关技术)
-- 🔨 [服务器基础环境安装及常用工具](#服务器基础环境安装及常用工具)
-- 💬 [LLM学习交流群](#llm学习交流群)
-- 👥 [微信公众号](#微信公众号)
+- 🍄 [LLM生態相關技術](#llm生態相關技術)
+- 🔨 [伺服器基礎環境安裝及常用工具](#伺服器基礎環境安裝及常用工具)
+- 💬 [LLM學習交流群](#llm學習交流群)
+- 👥 [微信公眾號](#微信公眾號)
 - ⭐️ [Star History](#star-history)
 
-## LLM训练
+## LLM訓練
 
-### LLM训练实战
+### LLM訓練實戰
 
-下面汇总了我在大模型实践中训练相关的所有教程。从6B到65B，从全量微调到高效微调（LoRA，QLoRA，P-Tuning v2），再到RLHF（基于人工反馈的强化学习）。
+下面彙總了我在大模型實踐中訓練相關的所有教程。從6B到65B，從全量微調到高效微調（LoRA，QLoRA，P-Tuning v2），再到RLHF（基於人工反饋的強化學習）。
 
-| LLM                         | 预训练/SFT/RLHF...            | 参数     | 教程                                                                                                                                                                                                                     | 代码                                                                                     |
+| LLM                         | 預訓練/SFT/RLHF...            | 引數     | 教程                                                                                                                                                                                                                     | 程式碼                                                                                     |
 | --------------------------- | ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| Alpaca                      | full fine-turning             | 7B       | [从0到1复现斯坦福羊驼（Stanford Alpaca 7B）](https://zhuanlan.zhihu.com/p/618321077)                                                                                                                                        | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/alpaca)               |
-| Alpaca(LLaMA)               | LoRA                          | 7B~65B   | 1.[足够惊艳，使用Alpaca-Lora基于LLaMA(7B)二十分钟完成微调，效果比肩斯坦福羊驼](https://zhuanlan.zhihu.com/p/619426866)<br>2. [使用 LoRA 技术对 LLaMA 65B 大模型进行微调及推理](https://zhuanlan.zhihu.com/p/632492604)    | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/alpaca-lora)          |
-| BELLE(LLaMA/Bloom)          | full fine-turning             | 7B       | 1.[基于LLaMA-7B/Bloomz-7B1-mt复现开源中文对话大模型BELLE及GPTQ量化](https://zhuanlan.zhihu.com/p/618876472) <br> 2. [BELLE(LLaMA-7B/Bloomz-7B1-mt)大模型使用GPTQ量化后推理性能测试](https://zhuanlan.zhihu.com/p/621128368) | N/A                                                                                      |
-| ChatGLM                     | LoRA                          | 6B       | [从0到1基于ChatGLM-6B使用LoRA进行参数高效微调](https://zhuanlan.zhihu.com/p/621793987)                                                                                                                                      | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/chatglm-lora)         |
-| ChatGLM                     | full fine-turning/P-Tuning v2 | 6B       | [使用DeepSpeed/P-Tuning v2对ChatGLM-6B进行微调](https://zhuanlan.zhihu.com/p/622351059)                                                                                                                                     | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/chatglm)              |
-| Vicuna(LLaMA)               | full fine-turning             | 7B       | [大模型也内卷，Vicuna训练及推理指南，效果碾压斯坦福羊驼](https://zhuanlan.zhihu.com/p/624012908)                                                                                                                            | N/A                                                                                      |
-| OPT                         | RLHF                          | 0.1B~66B | 1.[一键式 RLHF 训练 DeepSpeed Chat（一）：理论篇](https://zhuanlan.zhihu.com/p/626159553) <br> 2. [一键式 RLHF 训练 DeepSpeed Chat（二）：实践篇](https://zhuanlan.zhihu.com/p/626214655)                                 | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/deepspeedchat)        |
-| MiniGPT-4(LLaMA)            | full fine-turning             | 7B       | [大杀器，多模态大模型MiniGPT-4入坑指南](https://zhuanlan.zhihu.com/p/627671257)                                                                                                                                             | N/A                                                                                      |
-| Chinese-LLaMA-Alpaca(LLaMA) | LoRA（预训练+微调）           | 7B       | [中文LLaMA&amp;Alpaca大语言模型词表扩充+预训练+指令精调](https://zhuanlan.zhihu.com/p/631360711)                                                                                                                            | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/chinese-llama-alpaca) |
-| LLaMA                       | QLoRA                         | 7B/65B   | [高效微调技术QLoRA实战，基于LLaMA-65B微调仅需48G显存，真香](https://zhuanlan.zhihu.com/p/636644164)                                                                                                                         | [配套代码](https://github.com/liguodongiot/llm-action/tree/main/train/qlora)                |
+| Alpaca                      | full fine-turning             | 7B       | [從0到1復現斯坦福羊駝（Stanford Alpaca 7B）](https://zhuanlan.zhihu.com/p/618321077)                                                                                                                                        | [配套程式碼](https://github.com/liguodongiot/llm-action/tree/main/train/alpaca)               |
+| Alpaca(LLaMA)               | LoRA                          | 7B~65B   | 1.[足夠驚豔，使用Alpaca-Lora基於LLaMA(7B)二十分鐘完成微調，效果比肩斯坦福羊駝](https://zhuanlan.zhihu.com/p/619426866)<br>2. [使用 LoRA 技術對 LLaMA 65B 大模型進行微調及推理](https://zhuanlan.zhihu.com/p/632492604)    | [配套程式碼](https://github.com/liguodongiot/llm-action/tree/main/train/alpaca-lora)          |
+| BELLE(LLaMA/Bloom)          | full fine-turning             | 7B       | 1.[基於LLaMA-7B/Bloomz-7B1-mt復現開源中文對話大模型BELLE及GPTQ量化](https://zhuanlan.zhihu.com/p/618876472) <br> 2. [BELLE(LLaMA-7B/Bloomz-7B1-mt)大模型使用GPTQ量化後推理效能測試](https://zhuanlan.zhihu.com/p/621128368) | N/A                                                                                      |
+| ChatGLM                     | LoRA                          | 6B       | [從0到1基於ChatGLM-6B使用LoRA進行引數高效微調](https://zhuanlan.zhihu.com/p/621793987)                                                                                                                                      | [配套程式碼](https://github.com/liguodongiot/llm-action/tree/main/train/chatglm-lora)         |
+| ChatGLM                     | full fine-turning/P-Tuning v2 | 6B       | [使用DeepSpeed/P-Tuning v2對ChatGLM-6B進行微調](https://zhuanlan.zhihu.com/p/622351059)                                                                                                                                     | [配套程式碼](https://github.com/liguodongiot/llm-action/tree/main/train/chatglm)              |
+| Vicuna(LLaMA)               | full fine-turning             | 7B       | [大模型也內卷，Vicuna訓練及推理指南，效果碾壓斯坦福羊駝](https://zhuanlan.zhihu.com/p/624012908)                                                                                                                            | N/A                                                                                      |
+| OPT                         | RLHF                          | 0.1B~66B | 1.[一鍵式 RLHF 訓練 DeepSpeed Chat（一）：理論篇](https://zhuanlan.zhihu.com/p/626159553) <br> 2. [一鍵式 RLHF 訓練 DeepSpeed Chat（二）：實踐篇](https://zhuanlan.zhihu.com/p/626214655)                                 | [配套程式碼](https://github.com/liguodongiot/llm-action/tree/main/train/deepspeedchat)        |
+| MiniGPT-4(LLaMA)            | full fine-turning             | 7B       | [大殺器，多模態大模型MiniGPT-4入坑指南](https://zhuanlan.zhihu.com/p/627671257)                                                                                                                                             | N/A                                                                                      |
+| Chinese-LLaMA-Alpaca(LLaMA) | LoRA（預訓練+微調）           | 7B       | [中文LLaMA&amp;Alpaca大語言模型詞表擴充+預訓練+指令精調](https://zhuanlan.zhihu.com/p/631360711)                                                                                                                            | [配套程式碼](https://github.com/liguodongiot/llm-action/tree/main/train/chinese-llama-alpaca) |
+| LLaMA                       | QLoRA                         | 7B/65B   | [高效微調技術QLoRA實戰，基於LLaMA-65B微調僅需48G視訊記憶體，真香](https://zhuanlan.zhihu.com/p/636644164)                                                                                                                         | [配套程式碼](https://github.com/liguodongiot/llm-action/tree/main/train/qlora)                |
 
-**[⬆ 一键返回目录](#目录)**
+**[⬆ 一鍵返回目錄](#目錄)**
 
-### LLM微调技术原理
+### LLM微調技術原理
 
-对于普通大众来说，进行大模型的预训练或者全量微调遥不可及。由此，催生了各种参数高效微调技术，让科研人员或者普通开发者有机会尝试微调大模型。
+對於普通大眾來說，進行大模型的預訓練或者全量微調遙不可及。由此，催生了各種引數高效微調技術，讓科研人員或者普通開發者有機會嘗試微調大模型。
 
-因此，该技术值得我们进行深入分析其背后的机理，本系列大体分七篇文章进行讲解。
+因此，該技術值得我們進行深入分析其背後的機理，本系列大體分七篇文章進行講解。
 
-- [大模型参数高效微调技术原理综述（一）-背景、参数高效微调简介](https://zhuanlan.zhihu.com/p/635152813)
-- [大模型参数高效微调技术原理综述（二）-BitFit、Prefix Tuning、Prompt Tuning](https://zhuanlan.zhihu.com/p/635686756)
-- [大模型参数高效微调技术原理综述（三）-P-Tuning、P-Tuning v2](https://zhuanlan.zhihu.com/p/635848732)
-- [大模型参数高效微调技术原理综述（四）-Adapter Tuning及其变体](https://zhuanlan.zhihu.com/p/636038478)
-- [大模型参数高效微调技术原理综述（五）-LoRA、AdaLoRA、QLoRA](https://zhuanlan.zhihu.com/p/636215898)
-- [大模型参数高效微调技术原理综述（六）-MAM Adapter、UniPELT](https://zhuanlan.zhihu.com/p/636362246)
-- [大模型参数高效微调技术原理综述（七）-最佳实践、总结](https://zhuanlan.zhihu.com/p/649755252)
+- [大模型引數高效微調技術原理綜述（一）-背景、引數高效微調簡介](https://zhuanlan.zhihu.com/p/635152813)
+- [大模型引數高效微調技術原理綜述（二）-BitFit、Prefix Tuning、Prompt Tuning](https://zhuanlan.zhihu.com/p/635686756)
+- [大模型引數高效微調技術原理綜述（三）-P-Tuning、P-Tuning v2](https://zhuanlan.zhihu.com/p/635848732)
+- [大模型引數高效微調技術原理綜述（四）-Adapter Tuning及其變體](https://zhuanlan.zhihu.com/p/636038478)
+- [大模型引數高效微調技術原理綜述（五）-LoRA、AdaLoRA、QLoRA](https://zhuanlan.zhihu.com/p/636215898)
+- [大模型引數高效微調技術原理綜述（六）-MAM Adapter、UniPELT](https://zhuanlan.zhihu.com/p/636362246)
+- [大模型引數高效微調技術原理綜述（七）-最佳實踐、總結](https://zhuanlan.zhihu.com/p/649755252)
 
-### LLM微调实战
+### LLM微調實戰
 
-下面给大家分享**大模型参数高效微调技术实战**，该系列主要针对 HuggingFace PEFT 框架支持的一些高效微调技术进行讲解，共6篇文章。
+下面給大家分享**大模型引數高效微調技術實戰**，該系列主要針對 HuggingFace PEFT 框架支援的一些高效微調技術進行講解，共6篇文章。
 
-| 教程                                                                                                | 代码                                                                                                      | 框架             |
+| 教程                                                                                                | 程式碼                                                                                                      | 框架             |
 | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ---------------- |
-| [大模型参数高效微调技术实战（一）-PEFT概述及环境搭建](https://zhuanlan.zhihu.com/p/651744834)          | N/A                                                                                                       | HuggingFace PEFT |
-| [大模型参数高效微调技术实战（二）-Prompt Tuning](https://zhuanlan.zhihu.com/p/646748939)               | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_prompt_tuning_clm.ipynb) | HuggingFace PEFT |
-| [大模型参数高效微调技术实战（三）-P-Tuning](https://zhuanlan.zhihu.com/p/646876256)                    | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_p_tuning_clm.ipynb)      | HuggingFace PEFT |
-| [大模型参数高效微调技术实战（四）-Prefix Tuning / P-Tuning v2](https://zhuanlan.zhihu.com/p/648156780) | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_p_tuning_v2_clm.ipynb)   | HuggingFace PEFT |
-| [大模型参数高效微调技术实战（五）-LoRA](https://zhuanlan.zhihu.com/p/649315197)                        | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_lora_clm.ipynb)          | HuggingFace PEFT |
-| [大模型参数高效微调技术实战（六）-IA3](https://zhuanlan.zhihu.com/p/649707359)                         | [配套代码](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_ia3_clm.ipynb)           | HuggingFace PEFT |
+| [大模型引數高效微調技術實戰（一）-PEFT概述及環境搭建](https://zhuanlan.zhihu.com/p/651744834)          | N/A                                                                                                       | HuggingFace PEFT |
+| [大模型引數高效微調技術實戰（二）-Prompt Tuning](https://zhuanlan.zhihu.com/p/646748939)               | [配套程式碼](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_prompt_tuning_clm.ipynb) | HuggingFace PEFT |
+| [大模型引數高效微調技術實戰（三）-P-Tuning](https://zhuanlan.zhihu.com/p/646876256)                    | [配套程式碼](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_p_tuning_clm.ipynb)      | HuggingFace PEFT |
+| [大模型引數高效微調技術實戰（四）-Prefix Tuning / P-Tuning v2](https://zhuanlan.zhihu.com/p/648156780) | [配套程式碼](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_p_tuning_v2_clm.ipynb)   | HuggingFace PEFT |
+| [大模型引數高效微調技術實戰（五）-LoRA](https://zhuanlan.zhihu.com/p/649315197)                        | [配套程式碼](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_lora_clm.ipynb)          | HuggingFace PEFT |
+| [大模型引數高效微調技術實戰（六）-IA3](https://zhuanlan.zhihu.com/p/649707359)                         | [配套程式碼](https://github.com/liguodongiot/llm-action/blob/main/train/peft/clm/peft_ia3_clm.ipynb)           | HuggingFace PEFT |
 
-**[⬆ 一键返回目录](#目录)**
+**[⬆ 一鍵返回目錄](#目錄)**
 
-### [LLM分布式训练并行技术](https://github.com/liguodongiot/llm-action/tree/main/docs/llm-base/distribution-parallelism)
+### [LLM分散式訓練並行技術](https://github.com/liguodongiot/llm-action/tree/main/docs/llm-base/distribution-parallelism)
 
-近年来，随着Transformer、MOE架构的提出，使得深度学习模型轻松突破上万亿规模参数，传统的单机单卡模式已经无法满足超大模型进行训练的要求。因此，我们需要基于单机多卡、甚至是多机多卡进行分布式大模型的训练。
+近年來，隨著Transformer、MOE架構的提出，使得深度學習模型輕鬆突破上萬億規模引數，傳統的單機單卡模式已經無法滿足超大模型進行訓練的要求。因此，我們需要基於單機多卡、甚至是多機多卡進行分散式大模型的訓練。
 
-而利用AI集群，使深度学习算法更好地从大量数据中高效地训练出性能优良的大模型是分布式机器学习的首要目标。为了实现该目标，一般需要根据硬件资源与数据/模型规模的匹配情况，考虑对计算任务、训练数据和模型进行划分，从而进行分布式训练。因此，分布式训练相关技术值得我们进行深入分析其背后的机理。
+而利用AI叢集，使深度學習演算法更好地從大量資料中高效地訓練出效能優良的大模型是分散式機器學習的首要目標。為了實現該目標，一般需要根據硬體資源與資料/模型規模的匹配情況，考慮對計算任務、訓練資料和模型進行劃分，從而進行分散式訓練。因此，分散式訓練相關技術值得我們進行深入分析其背後的機理。
 
-下面主要对大模型进行分布式训练的并行技术进行讲解，本系列大体分九篇文章进行讲解。
+下面主要對大模型進行分散式訓練的並行技術進行講解，本系列大體分九篇文章進行講解。
 
-- [大模型分布式训练并行技术（一）-概述](https://zhuanlan.zhihu.com/p/598714869)
-- [大模型分布式训练并行技术（二）-数据并行](https://zhuanlan.zhihu.com/p/650002268)
-- [大模型分布式训练并行技术（三）-流水线并行](https://zhuanlan.zhihu.com/p/653860567)
-- [大模型分布式训练并行技术（四）-张量并行](https://zhuanlan.zhihu.com/p/657921100)
-- [大模型分布式训练并行技术（五）-序列并行](https://zhuanlan.zhihu.com/p/659792351)
-- [大模型分布式训练并行技术（六）-多维混合并行](https://zhuanlan.zhihu.com/p/661279318)
-- [大模型分布式训练并行技术（七）-自动并行](https://zhuanlan.zhihu.com/p/662517647)
-- [大模型分布式训练并行技术（八）-MOE并行](https://zhuanlan.zhihu.com/p/662518387)
-- [大模型分布式训练并行技术（九）-总结](https://juejin.cn/post/7290740395913969705)
+- [大模型分散式訓練並行技術（一）-概述](https://zhuanlan.zhihu.com/p/598714869)
+- [大模型分散式訓練並行技術（二）-資料並行](https://zhuanlan.zhihu.com/p/650002268)
+- [大模型分散式訓練並行技術（三）-流水線並行](https://zhuanlan.zhihu.com/p/653860567)
+- [大模型分散式訓練並行技術（四）-張量並行](https://zhuanlan.zhihu.com/p/657921100)
+- [大模型分散式訓練並行技術（五）-序列並行](https://zhuanlan.zhihu.com/p/659792351)
+- [大模型分散式訓練並行技術（六）-多維混合並行](https://zhuanlan.zhihu.com/p/661279318)
+- [大模型分散式訓練並行技術（七）-自動並行](https://zhuanlan.zhihu.com/p/662517647)
+- [大模型分散式訓練並行技術（八）-MOE並行](https://zhuanlan.zhihu.com/p/662518387)
+- [大模型分散式訓練並行技術（九）-總結](https://juejin.cn/post/7290740395913969705)
 
-**[⬆ 一键返回目录](#目录)**
+**[⬆ 一鍵返回目錄](#目錄)**
 
-### 分布式AI框架
+### 分散式AI框架
 
 - [PyTorch](https://github.com/liguodongiot/llm-action/tree/main/train/pytorch/)
-  - PyTorch 单机多卡训练
-  - PyTorch 多机多卡训练
+  - PyTorch 單機多卡訓練
+  - PyTorch 多機多卡訓練
 - [Megatron-LM](https://github.com/liguodongiot/llm-action/tree/main/train/megatron)
-  - Megatron-LM 单机多卡训练
-  - Megatron-LM 多机多卡训练
-  - [基于Megatron-LM从0到1完成GPT2模型预训练、模型评估及推理](https://juejin.cn/post/7259682893648724029)
+  - Megatron-LM 單機多卡訓練
+  - Megatron-LM 多機多卡訓練
+  - [基於Megatron-LM從0到1完成GPT2模型預訓練、模型評估及推理](https://juejin.cn/post/7259682893648724029)
 - [DeepSpeed](https://github.com/liguodongiot/llm-action/tree/main/train/deepspeed)
-  - DeepSpeed 单机多卡训练
-  - DeepSpeed 多机多卡训练
+  - DeepSpeed 單機多卡訓練
+  - DeepSpeed 多機多卡訓練
 - [Megatron-DeepSpeed](https://github.com/liguodongiot/llm-action/tree/main/train/megatron-deepspeed)
-  - 基于 Megatron-DeepSpeed 从 0 到1 完成 LLaMA 预训练
-  - 基于 Megatron-DeepSpeed 从 0 到1 完成 Bloom 预训练
+  - 基於 Megatron-DeepSpeed 從 0 到1 完成 LLaMA 預訓練
+  - 基於 Megatron-DeepSpeed 從 0 到1 完成 Bloom 預訓練
 
 
 
 
 
-**[⬆ 一键返回目录](#目录)**
+**[⬆ 一鍵返回目錄](#目錄)**
 
 ## [LLM推理](https://github.com/liguodongiot/llm-action/tree/main/inference)
 
 ### LLM推理框架
 
 - [大模型推理框架概述](https://www.zhihu.com/question/625415776/answer/3243562246)
-- [大模型的好伙伴，浅析推理加速引擎FasterTransformer](https://zhuanlan.zhihu.com/p/626008090)
-- [模型推理服务化框架Triton保姆式教程（一）：快速入门](https://zhuanlan.zhihu.com/p/629336492)
-- [模型推理服务化框架Triton保姆式教程（二）：架构解析](https://zhuanlan.zhihu.com/p/634143650)
-- [模型推理服务化框架Triton保姆式教程（三）：开发实践](https://zhuanlan.zhihu.com/p/634444666)
-- [TensorRT-LLM保姆级教程（一）-快速入门](https://zhuanlan.zhihu.com/p/666849728)
-- [TensorRT-LLM保姆级教程（二）-开发实践](https://zhuanlan.zhihu.com/p/667572720)
-- TensorRT-LLM保姆级教程（三）-基于Triton完成模型服务化
-- TensorRT-LLM保姆级教程（四）-新模型适配
+- [大模型的好夥伴，淺析推理加速引擎FasterTransformer](https://zhuanlan.zhihu.com/p/626008090)
+- [模型推理服務化框架Triton保姆式教程（一）：快速入門](https://zhuanlan.zhihu.com/p/629336492)
+- [模型推理服務化框架Triton保姆式教程（二）：架構解析](https://zhuanlan.zhihu.com/p/634143650)
+- [模型推理服務化框架Triton保姆式教程（三）：開發實踐](https://zhuanlan.zhihu.com/p/634444666)
+- [TensorRT-LLM保姆級教程（一）-快速入門](https://zhuanlan.zhihu.com/p/666849728)
+- [TensorRT-LLM保姆級教程（二）-開發實踐](https://zhuanlan.zhihu.com/p/667572720)
+- TensorRT-LLM保姆級教程（三）-基於Triton完成模型服務化
+- TensorRT-LLM保姆級教程（四）-新模型適配
 
 
-### LLM推理优化技术
+### LLM推理最佳化技術
 
-- [LLM推理优化技术概述]()
+- [LLM推理最佳化技術概述]()
 - PageAttention
 - FlashAttention
 
-## LLM压缩
+## LLM壓縮
 
-- 模型压缩技术原理（一）：知识蒸馏 
-- 模型压缩技术原理（二）：模型量化
-- 模型压缩技术原理（三）：模型剪枝 
+- 模型壓縮技術原理（一）：知識蒸餾 
+- 模型壓縮技術原理（二）：模型量化
+- 模型壓縮技術原理（三）：模型剪枝 
 
 
 ### [LLM量化](https://github.com/liguodongiot/llm-action/tree/main/model-compression/quantization)
 
 - [大模型量化概述](https://www.zhihu.com/question/627484732/answer/3261671478)
 
-训练后量化：
+訓練後量化：
 
 - SmoothQuant
 - ZeroQuant
@@ -164,41 +164,41 @@
 - AWQ
 
 
-量化感知训练：
+量化感知訓練：
 
-- [大模型量化感知训练开山之作：LLM-QAT](https://zhuanlan.zhihu.com/p/647589650)
+- [大模型量化感知訓練開山之作：LLM-QAT](https://zhuanlan.zhihu.com/p/647589650)
 
-量化感知微调：
+量化感知微調：
 
 - QLoRA
 - PEQA
 
 ### LLM剪枝
 
-**结构化剪枝**：
+**結構化剪枝**：
 
 - LLM-Pruner
 
-**非结构化剪枝**：
+**非結構化剪枝**：
 
 - SparseGPT
 - LoRAPrune
 - Wanda
 
-### LLM知识蒸馏
+### LLM知識蒸餾
 
-- [大模型知识蒸馏概述](https://www.zhihu.com/question/625415893/answer/3243565375)
+- [大模型知識蒸餾概述](https://www.zhihu.com/question/625415893/answer/3243565375)
 
 **Standard KD**:
 
-使学生模型学习教师模型(LLM)所拥有的常见知识，如输出分布和特征信息，这种方法类似于传统的KD。
+使學生模型學習教師模型(LLM)所擁有的常見知識，如輸出分佈和特徵資訊，這種方法類似於傳統的KD。
 
 - MINILLM
 - GKD
 
 **EA-based KD**:
 
-不仅仅是将LLM的常见知识转移到学生模型中，还涵盖了蒸馏它们独特的涌现能力。具体来说，EA-based KD又分为了上下文学习（ICL）、思维链（CoT）和指令跟随（IF）。
+不僅僅是將LLM的常見知識轉移到學生模型中，還涵蓋了蒸餾它們獨特的湧現能力。具體來說，EA-based KD又分為了上下文學習（ICL）、思維鏈（CoT）和指令跟隨（IF）。
 
 In-Context Learning：
 
@@ -218,51 +218,51 @@ Instruction Following：
 
 ### 低秩分解
 
-低秩分解旨在通过将给定的权重矩阵分解成两个或多个较小维度的矩阵，从而对其进行近似。低秩分解背后的核心思想是找到一个大的权重矩阵W的分解，得到两个矩阵U和V，使得W≈U V，其中U是一个m×k矩阵，V是一个k×n矩阵，其中k远小于m和n。U和V的乘积近似于原始的权重矩阵，从而大幅减少了参数数量和计算开销。
+低秩分解旨在透過將給定的權重矩陣分解成兩個或多個較小維度的矩陣，從而對其進行近似。低秩分解背後的核心思想是找到一個大的權重矩陣W的分解，得到兩個矩陣U和V，使得W≈U V，其中U是一個m×k矩陣，V是一個k×n矩陣，其中k遠小於m和n。U和V的乘積近似於原始的權重矩陣，從而大幅減少了引數數量和計算開銷。
 
-在LLM研究的模型压缩领域，研究人员通常将多种技术与低秩分解相结合，包括修剪、量化等。
+在LLM研究的模型壓縮領域，研究人員通常將多種技術與低秩分解相結合，包括修剪、量化等。
 
 - ZeroQuant-FP（低秩分解+量化）
 - LoRAPrune（低秩分解+剪枝）
 
-## [LLM算法](https://github.com/liguodongiot/llm-action/tree/main/docs/llm-base/ai-algo)
+## [LLM演算法](https://github.com/liguodongiot/llm-action/tree/main/docs/llm-base/ai-algo)
 
-- [大模型算法演进](https://zhuanlan.zhihu.com/p/600016134)
+- [大模型演算法演進](https://zhuanlan.zhihu.com/p/600016134)
 - ChatGLM / ChatGLM2 / ChatGLM3 大模型解析
 - Bloom 大模型解析
 - LLaMA / LLaMA2 大模型解析
-- [百川智能开源大模型baichuan-7B技术剖析](https://www.zhihu.com/question/606757218/answer/3075464500)
-- [百川智能开源大模型baichuan-13B技术剖析](https://www.zhihu.com/question/611507751/answer/3114988669)
+- [百川智慧開源大模型baichuan-7B技術剖析](https://www.zhihu.com/question/606757218/answer/3075464500)
+- [百川智慧開源大模型baichuan-13B技術剖析](https://www.zhihu.com/question/611507751/answer/3114988669)
 
 
-## [LLM国产化适配](https://github.com/liguodongiot/llm-action/tree/main/docs/llm_localization)
+## [LLM國產化適配](https://github.com/liguodongiot/llm-action/tree/main/docs/llm_localization)
 
-随着 ChatGPT 的现象级走红，引领了AI大模型时代的变革，从而导致 AI 算力日益紧缺。与此同时，中美贸易战以及美国对华进行AI芯片相关的制裁导致 AI 算力的国产化适配势在必行。本系列将对一些国产化 AI 加速卡进行讲解。
+隨著 ChatGPT 的現象級走紅，引領了AI大模型時代的變革，從而導致 AI 算力日益緊缺。與此同時，中美貿易戰以及美國對華進行AI晶片相關的制裁導致 AI 算力的國產化適配勢在必行。本系列將對一些國產化 AI 加速卡進行講解。
 
-- [大模型国产化适配1-华为昇腾AI全栈软硬件平台总结](https://zhuanlan.zhihu.com/p/637918406)
-- [大模型国产化适配2-基于昇腾910使用ChatGLM-6B进行模型推理](https://zhuanlan.zhihu.com/p/650730807)
-- [大模型国产化适配3-基于昇腾910使用ChatGLM-6B进行模型训练](https://zhuanlan.zhihu.com/p/651324599)
-- [大模型国产化适配4-基于昇腾910使用LLaMA-13B进行多机多卡训练](https://juejin.cn/post/7265627782712901686)
-- [大模型国产化适配5-百度飞浆PaddleNLP大语言模型工具链总结](https://juejin.cn/post/7291513759470960679)
+- [大模型國產化適配1-華為昇騰AI全棧軟硬體平臺總結](https://zhuanlan.zhihu.com/p/637918406)
+- [大模型國產化適配2-基於昇騰910使用ChatGLM-6B進行模型推理](https://zhuanlan.zhihu.com/p/650730807)
+- [大模型國產化適配3-基於昇騰910使用ChatGLM-6B進行模型訓練](https://zhuanlan.zhihu.com/p/651324599)
+- [大模型國產化適配4-基於昇騰910使用LLaMA-13B進行多機多卡訓練](https://juejin.cn/post/7265627782712901686)
+- [大模型國產化適配5-百度飛漿PaddleNLP大語言模型工具鏈總結](https://juejin.cn/post/7291513759470960679)
 
-**[⬆ 一键返回目录](#目录)**
+**[⬆ 一鍵返回目錄](#目錄)**
 
-## LLM应用开发
+## LLM應用開發
 
-大模型是基座，要想让其变成一款产品，我们还需要一些其他相关的技术，比如：向量数据库（Pinecone、Milvus、Vespa、Weaviate），LangChain等。
+大模型是基座，要想讓其變成一款產品，我們還需要一些其他相關的技術，比如：向量資料庫（Pinecone、Milvus、Vespa、Weaviate），LangChain等。
 
-- [云原生向量数据库Milvus（一）-简述、系统架构及应用场景](https://zhuanlan.zhihu.com/p/476025527)
-- [云原生向量数据库Milvus（二）-数据与索引的处理流程、索引类型及Schema](https://zhuanlan.zhihu.com/p/477231485)
-- [关于大模型驱动的AI智能体Agent的一些思考](https://zhuanlan.zhihu.com/p/651921120)
+- [雲原生向量資料庫Milvus（一）-簡述、系統架構及應用場景](https://zhuanlan.zhihu.com/p/476025527)
+- [雲原生向量資料庫Milvus（二）-資料與索引的處理流程、索引型別及Schema](https://zhuanlan.zhihu.com/p/477231485)
+- [關於大模型驅動的AI智慧體Agent的一些思考](https://zhuanlan.zhihu.com/p/651921120)
 
 
-## AI编译器
+## AI編譯器
 
-AI编译器是指将机器学习算法从开发阶段，通过变换和优化算法，使其变成部署状态。
+AI編譯器是指將機器學習演算法從開發階段，透過變換和最佳化演算法，使其變成部署狀態。
 
-- [AI编译器技术原理（一）-概述]()
-- [AI编译器技术原理（二）-编译器前端]()
-- [AI编译器技术原理（三）-编译器后端]()
+- [AI編譯器技術原理（一）-概述]()
+- [AI編譯器技術原理（二）-編譯器前端]()
+- [AI編譯器技術原理（三）-編譯器後端]()
 
 
 框架：
@@ -272,78 +272,78 @@ AI编译器是指将机器学习算法从开发阶段，通过变换和优化算
 
 
 
-## AI基础设施
+## AI基礎設施
 
 ### AI加速卡
 
-- [AI芯片技术原理剖析（一）：国内外AI芯片概述](https://zhuanlan.zhihu.com/p/667686665)
-- AI芯片技术原理剖析（二）：英伟达GPU 
-- AI芯片技术原理剖析（三）：谷歌TPU
+- [AI晶片技術原理剖析（一）：國內外AI晶片概述](https://zhuanlan.zhihu.com/p/667686665)
+- AI晶片技術原理剖析（二）：英偉達GPU 
+- AI晶片技術原理剖析（三）：谷歌TPU
 
-### AI集群
-
-待更新...
-
-
-### [AI集群网络通信](https://github.com/liguodongiot/llm-action/tree/main/docs/llm-base/network-communication)
+### AI叢集
 
 待更新...
 
-- 分布式训练网络通讯原语
-- AI 集群通信软硬件
+
+### [AI叢集網路通訊](https://github.com/liguodongiot/llm-action/tree/main/docs/llm-base/network-communication)
+
+待更新...
+
+- 分散式訓練網路通訊原語
+- AI 叢集通訊軟硬體
 
 
 ## LLMOps
 
 待更新...
 
-## LLM生态相关技术
+## LLM生態相關技術
 
-- [大模型词表扩充必备工具SentencePiece](https://zhuanlan.zhihu.com/p/630696264)
-- [大模型实践总结](https://www.zhihu.com/question/601594836/answer/3032763174)
-- [ChatGLM 和 ChatGPT 的技术区别在哪里？](https://www.zhihu.com/question/604393963/answer/3061358152)
-- [现在为什么那么多人以清华大学的ChatGLM-6B为基座进行试验？](https://www.zhihu.com/question/602504880/answer/3041965998)
-- [为什么很多新发布的大模型默认使用BF16而不是FP16？](https://www.zhihu.com/question/616600181/answer/3195333332)
+- [大模型詞表擴充必備工具SentencePiece](https://zhuanlan.zhihu.com/p/630696264)
+- [大模型實踐總結](https://www.zhihu.com/question/601594836/answer/3032763174)
+- [ChatGLM 和 ChatGPT 的技術區別在哪裡？](https://www.zhihu.com/question/604393963/answer/3061358152)
+- [現在為什麼那麼多人以清華大學的ChatGLM-6B為基座進行試驗？](https://www.zhihu.com/question/602504880/answer/3041965998)
+- [為什麼很多新發布的大模型預設使用BF16而不是FP16？](https://www.zhihu.com/question/616600181/answer/3195333332)
 
-**[⬆ 一键返回目录](#目录)**
+**[⬆ 一鍵返回目錄](#目錄)**
 
-## 服务器基础环境安装及常用工具
+## 伺服器基礎環境安裝及常用工具
 
-基础环境安装：
+基礎環境安裝：
 
-- [英伟达A800加速卡常见软件包安装命令](https://github.com/liguodongiot/llm-action/blob/main/docs/llm-base/a800-env-install.md)
-- [英伟达H800加速卡常见软件包安装命令](https://github.com/liguodongiot/llm-action/blob/main/docs/llm-base/h800-env-install.md)
-- [昇腾910加速卡常见软件包安装命令](https://github.com/liguodongiot/llm-action/blob/main/docs/llm_localization/ascend910-env-install.md)
+- [英偉達A800加速卡常見軟體包安裝命令](https://github.com/liguodongiot/llm-action/blob/main/docs/llm-base/a800-env-install.md)
+- [英偉達H800加速卡常見軟體包安裝命令](https://github.com/liguodongiot/llm-action/blob/main/docs/llm-base/h800-env-install.md)
+- [昇騰910加速卡常見軟體包安裝命令](https://github.com/liguodongiot/llm-action/blob/main/docs/llm_localization/ascend910-env-install.md)
 
 常用工具：
 
-- [Linux 常见命令大全](https://juejin.cn/post/6992742028605915150)
+- [Linux 常見命令大全](https://juejin.cn/post/6992742028605915150)
 - [Conda 常用命令大全](https://juejin.cn/post/7089093437223338015)
 - [Poetry 常用命令大全](https://juejin.cn/post/6999405667261874183)
 - [Docker 常用命令大全](https://juejin.cn/post/7016238524286861325)
 - [Docker Dockerfile 指令大全](https://juejin.cn/post/7016595442062327844)
 - [Kubernetes 常用命令大全](https://juejin.cn/post/7031201391553019911)
-- [集群环境 GPU 管理和监控工具 DCGM 常用命令大全](https://github.com/liguodongiot/llm-action/blob/main/docs/llm-base/dcgmi.md)
+- [叢集環境 GPU 管理和監控工具 DCGM 常用命令大全](https://github.com/liguodongiot/llm-action/blob/main/docs/llm-base/dcgmi.md)
 
-## LLM学习交流群
+## LLM學習交流群
 
-我创建了大模型学习交流群，供大家一起学习交流大模型相关的最新技术，目前已有5个群，每个群都有上百人的规模，**可加我微信进群**（加微信请备注来意，如：进大模型学习交流群+GitHub）。**一定要备注哟，否则不予通过**。
+我建立了大模型學習交流群，供大家一起學習交流大模型相關的最新技術，目前已有5個群，每個群都有上百人的規模，**可加我微信進群**（加微信請備註來意，如：進大模型學習交流群+GitHub）。**一定要備註喲，否則不予透過**。
 
-PS：**成都有个本地大模型交流群，想进可以另外单独备注下。**
+PS：**成都有個本地大模型交流群，想進可以另外單獨備註下。**
 
 <p align="center">
   <img src="https://github.com/liguodongiot/llm-action/blob/main/pic/wx.jpg">
 </p>
 
-## 微信公众号
+## 微信公眾號
 
-微信公众号：**吃果冻不吐果冻皮**，该公众号主要分享AI工程化（大模型、MLOps等）相关实践经验，免费电子书籍、论文等。
+微信公眾號：**吃果凍不吐果凍皮**，該公眾號主要分享AI工程化（大模型、MLOps等）相關實踐經驗，免費電子書籍、論文等。
 
 <p align="center">
   <img src="https://github.com/liguodongiot/llm-action/blob/main/pic/wx-gzh.png" >
 </p>
 
-**[⬆ 一键返回目录](#目录)**
+**[⬆ 一鍵返回目錄](#目錄)**
 
 ## Star History
 

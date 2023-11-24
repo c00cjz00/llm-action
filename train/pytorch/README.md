@@ -1,6 +1,6 @@
 
 
-- 镜像：https://hub.docker.com/r/pytorch/pytorch
+- 映象：https://hub.docker.com/r/pytorch/pytorch
 
 
 - https://github.com/pytorch/examples
@@ -11,10 +11,10 @@
 
 
 
-- torch.distributed.get_rank() # 取得当前进程的全局序号
-- torch.distributed.get_world_size() # 取得全局进程的个数
-- torch.cuda.set_device(device) # 为当前进程分配GPU
-- torch.distributed.new_group(ranks) # 设置组
+- torch.distributed.get_rank() # 取得當前程序的全域性序號
+- torch.distributed.get_world_size() # 取得全域性程序的個數
+- torch.cuda.set_device(device) # 為當前程序分配GPU
+- torch.distributed.new_group(ranks) # 設定組
 - torch.cuda.current_device()
 
 
@@ -35,15 +35,15 @@
 
 
 
-## PyTorch 分布式训练
+## PyTorch 分散式訓練
 
 
 
-- PyTorch 分布式训练（一）：概述
-- PyTorch 分布式训练（二）：数据并行
-- PyTorch 分布式训练（三）：分布式自动微分
-- PyTorch 分布式训练（四）：分布式优化器
-- PyTorch 分布式训练（五）：分布式 RPC 框架
+- PyTorch 分散式訓練（一）：概述
+- PyTorch 分散式訓練（二）：資料並行
+- PyTorch 分散式訓練（三）：分散式自動微分
+- PyTorch 分散式訓練（四）：分散式最佳化器
+- PyTorch 分散式訓練（五）：分散式 RPC 框架
 - 
 
 
@@ -51,10 +51,10 @@
 
 
 
-## 问题排查
+## 問題排查
 
 
-- 将环境变量 NCCL_DEBUG 设置为 INFO 以打印有助于诊断问题的详细日志。（export NCCL_DEBUG=INFO）
-- 显式设置网络接口。（export NCCL_SOCKET_IFNAME=eth0）
+- 將環境變數 NCCL_DEBUG 設定為 INFO 以列印有助於診斷問題的詳細日誌。（export NCCL_DEBUG=INFO）
+- 顯式設定網路介面。（export NCCL_SOCKET_IFNAME=eth0）
 
 

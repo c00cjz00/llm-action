@@ -20,7 +20,7 @@ chmod +x Ascend-docker-runtime_{version}_linux-{arch}.run
 
 
 
-docker run -it -e ASCEND_VISIBLE_DEVICES=0 镜像id  /bin/bash
+docker run -it -e ASCEND_VISIBLE_DEVICES=0 映象id  /bin/bash
 
 bash test_model.sh
 
@@ -165,7 +165,7 @@ docker exec -it  mindspore_dev bash
 
 
 
-## 安装(mac m1)
+## 安裝(mac m1)
 
 ```
 pip install https://ms-release.obs.cn-north-4.myhuaweicloud.com/2.2.0/MindSpore/cpu/aarch64/mindspore-2.2.0-cp39-cp39-macosx_11_0_arm64.whl --trusted-host ms-release.obs.cn-north-4.myhuaweicloud.com -i https://pypi.tuna.tsinghua.edu.cn/simple
@@ -185,9 +185,9 @@ docker pull --platform=arm64 swr.cn-central-221.ovaijisuan.com/mindformers/mindf
 
 
 ```
-# --device用于控制指定容器的运行NPU卡号和范围
-# -v 用于映射容器外的目录
-# --name 用于自定义容器名称
+# --device用於控制指定容器的執行NPU卡號和範圍
+# -v 用於對映容器外的目錄
+# --name 用於自定義容器名稱
 
 docker run -it -u root \
 --ipc=host \
@@ -207,7 +207,7 @@ docker run -it -u root \
 -v /usr/local/Ascend/driver:/usr/local/Ascend/driver \
 -v /var/log/npu/:/usr/slog \
 -v /usr/local/bin/npu-smi:/usr/local/bin/npu-smi \
---name {请手动输入容器名称} \
+--name {請手動輸入容器名稱} \
 swr.cn-central-221.ovaijisuan.com/mindformers/mindformers0.8.0_mindspore2.2.0:aarch_20231025 \
 /bin/bash
 ```

@@ -1,7 +1,7 @@
 
 
 
-## 安装
+## 安裝
 
 ```
 pip install --upgrade mxnet gluonnlp

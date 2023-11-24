@@ -1,11 +1,11 @@
 
 # Stanford Alpaca
-- 源码： https://github.com/tatsu-lab/stanford_alpaca
+- 原始碼： https://github.com/tatsu-lab/stanford_alpaca
 - commit id: `73cac8be49a66ca5d159ee9199428804e1e6aabe`
 
 
 
-## 启动命令 
+## 啟動命令 
 
 ```
 torchrun --nproc_per_node=8 --master_port=11223 train.py \
@@ -83,7 +83,7 @@ deepspeed --include localhost:4,5,6,7 train.py \
 
 ## A800-DDP
 
-单机多卡：
+單機多卡：
 ```
 deepspeed --include localhost:0,1,2,3,4,5,6,7 train_ddp.py \
 --deepspeed ds_config_zero2_ddp.json \
@@ -108,7 +108,7 @@ deepspeed --include localhost:0,1,2,3,4,5,6,7 train_ddp.py \
 --fp16 True
 ```
 
-多机多卡：
+多機多卡：
 ```
 deepspeed --hostfile=/home/guodong.li/code/hostfile train_ddp.py \
 --deepspeed ds_config_zero2_ddp.json \
@@ -195,8 +195,8 @@ deepspeed --include localhost:0,1,2,3,4,5,6,7 train.py \
 
 ## H800-DDP
 
-### 单机单卡
-运行命令：
+### 單機單卡
+執行命令：
 ```
 deepspeed --include localhost:7 train_ddp.py \
 --deepspeed ds_config_zero2.json \
@@ -221,14 +221,14 @@ deepspeed --include localhost:7 train_ddp.py \
 --fp16 True
 ```
 
-训练时长：
+訓練時長：
 
 ```
 {'train_runtime': 7284.2064, 'train_samples_per_second': 0.879, 'train_steps_per_second': 0.11, 'train_loss': 1.0952609968185425, 'epoch': 0.12}
 100%|█████████████████████████████████████████████████████████████████████████████████████| 800/800 [2:01:24<00:00,  9.11s/it]
 ```
 
-显存占用：
+視訊記憶體佔用：
 ```
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 525.105.17   Driver Version: 525.105.17   CUDA Version: 12.0     |
@@ -251,10 +251,10 @@ deepspeed --include localhost:7 train_ddp.py \
 +-----------------------------------------------------------------------------+
 ```
 
-### 单机多卡
+### 單機多卡
 
 
-运行命令：
+執行命令：
 ```
 deepspeed --include localhost:0,1,2,3,4,5,6,7 train_ddp.py \
 --deepspeed ds_config_zero2.json \
@@ -279,7 +279,7 @@ deepspeed --include localhost:0,1,2,3,4,5,6,7 train_ddp.py \
 --fp16 True
 ```
 
-训练时长：
+訓練時長：
 
 ```
 {'train_runtime': 779.6666, 'train_samples_per_second': 8.209, 'train_steps_per_second': 0.128, 'train_loss': 1.129374122619629, 'epoch': 0.12}
@@ -287,7 +287,7 @@ deepspeed --include localhost:0,1,2,3,4,5,6,7 train_ddp.py \
 ```
 
 
-显存占用：
+視訊記憶體佔用：
 ```
 > nvidia-smi
 Fri Jun 30 19:25:22 2023
@@ -347,7 +347,7 @@ Fri Jun 30 19:25:22 2023
 +-----------------------------------------------------------------------------+
 ```
 
-有效负载和协议开销：
+有效負載和協議開銷：
 ```
 > nvidia-smi nvlink -i 0 -gt d
 GPU 0: NVIDIA H800 (UUID: GPU-34bf77d1-c686-6821-79a8-32d326c5039c)

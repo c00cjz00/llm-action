@@ -7,7 +7,7 @@
 
 
 
-- 飞浆-MOE：https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/06_distributed_training/moe_cn.html
+- 飛漿-MOE：https://www.paddlepaddle.org.cn/documentation/docs/zh/guides/06_distributed_training/moe_cn.html
 - 
 - https://blog.csdn.net/qq_41185868/article/details/103219988
 
@@ -21,72 +21,72 @@ GShard，Switch-Transformer， GLaM
 
 
 
-- Mixture-of-Experts (MoE) 经典论文一览：https://zhuanlan.zhihu.com/p/542465517
+- Mixture-of-Experts (MoE) 經典論文一覽：https://zhuanlan.zhihu.com/p/542465517
 
 
 ```
-GShard，按照文章的说法，是第一个将MoE的思想拓展到Transformer上的工作。
-具体的做法是，把Transformer的encoder和decoder中，每隔一个（every other）的FFN层，替换成position-wise 的 MoE层，使用的都是 Top-2 gating network。
+GShard，按照文章的說法，是第一個將MoE的思想拓展到Transformer上的工作。
+具體的做法是，把Transformer的encoder和decoder中，每隔一個（every other）的FFN層，替換成position-wise 的 MoE層，使用的都是 Top-2 gating network。
 
 
 
 
-跟其他MoE模型的一个显著不同就是，Switch Transformer 的 gating network 每次只 route 到 1 个 expert，而其他的模型都是至少2个。
-这样就是最稀疏的MoE了，因此单单从MoE layer的计算效率上讲是最高的了。
-```
-
-
-
-
-
-- Google的 Pathways（理想）与 PaLM（现实）：https://zhuanlan.zhihu.com/p/541281939
-
-```
-当前模型的主要问题：
-
-基本都是一个模型做一个任务；
-在一个通用的模型上继续fine-tune，会遗忘很多其他知识；
-基本都是单模态；
-基本都是 dense 模型，在完成一个任务时（不管难易程度），网络的所有参数都被激活和使用；
-
-
-
-Pathways 的愿景 —— 一个跟接近人脑的框架：
-
-一个模型，可以做多任务，多模态
-sparse model，在做任务时，只是 sparsely activated，只使用一部分的参数
+跟其他MoE模型的一個顯著不同就是，Switch Transformer 的 gating network 每次只 route 到 1 個 expert，而其他的模型都是至少2個。
+這樣就是最稀疏的MoE了，因此單單從MoE layer的計算效率上講是最高的了。
 ```
 
 
 
 
-- GShard论文笔记（1）-MoE结构：https://zhuanlan.zhihu.com/p/344344373
+
+- Google的 Pathways（理想）與 PaLM（現實）：https://zhuanlan.zhihu.com/p/541281939
 
 ```
-Mixture-of-Experts结构的模型更像是一个智囊团，里面有多个专家，你的问题会分配给最相关的一个或多个专家，综合他们的意见得到最终结果。
+當前模型的主要問題：
 
-为了实现这个结构，显而易见需要两部分：
-
-1）分发器：根据你的问题决定应该问哪些专家
-2）一群各有所长的专家：根据分发器分过来的问题做解答
-3）（可选）综合器：很多专家如果同事给出了意见，决定如何整合这些意见，这个东西某种程度上和分发器是一样的，其实就是根据问题，给各个专家分配一个权重
-
-
-
-左边部分展示了普通的Transformer模型，右边展示了引入MoE结构的Transformer模型：其实就是把原来的FFN（两层全连接）替换成了红框里的MoE结构。不过MoE里面的“专家”依旧是FFN，只是从单个FFN换成了一群FFN，又加了一个分发器（图中的Gating）。分发器的任务是把不同的token分发给不同的专家。
+基本都是一個模型做一個任務；
+在一個通用的模型上繼續fine-tune，會遺忘很多其他知識；
+基本都是單模態；
+基本都是 dense 模型，在完成一個任務時（不管難易程度），網路的所有引數都被啟用和使用；
 
 
 
+Pathways 的願景 —— 一個跟接近人腦的框架：
 
-看完了专家和分发器的作用，我们再进一步看看GShard里面他们的具体实现：
+一個模型，可以做多工，多模態
+sparse model，在做任務時，只是 sparsely activated，只使用一部分的引數
+```
 
-对于分发器来说，在训练过程中，最好把token平均分配给各个专家：不然有些专家闲着，有些专家一堆事，会影响训练速度，而且那些整天无所事事的专家肯定最后训练的效果不好。。。因此分发器有一个很重要的任务，就是尽可能把token均分给各个专家。
 
-为了完成这个目标，有一些繁琐的设定：
 
-1）引入了一个loss，专门用来控制我分发器分发的怎么样：如果我把token都分给一个人，loss就很高，分的越均匀（最好是彻底均分），loss越小
-2）每个token最多分配给两个专家。如果我每个token哐叽一下发给了所有人，那我多专家有什么意义？（专家之间的差别主要就是训练数据的不同引起的）
-3）每个专家每次最多接手C个token。和2类似，如果一个专家成天：“教练，我想打篮球”，“教练，我想唱”，“教练，我想rapper”。。。那估计最后学出来也是四不像
+
+- GShard論文筆記（1）-MoE結構：https://zhuanlan.zhihu.com/p/344344373
+
+```
+Mixture-of-Experts結構的模型更像是一個智囊團，裡面有多個專家，你的問題會分配給最相關的一個或多個專家，綜合他們的意見得到最終結果。
+
+為了實現這個結構，顯而易見需要兩部分：
+
+1）分發器：根據你的問題決定應該問哪些專家
+2）一群各有所長的專家：根據分發器分過來的問題做解答
+3）（可選）綜合器：很多專家如果同事給出了意見，決定如何整合這些意見，這個東西某種程度上和分發器是一樣的，其實就是根據問題，給各個專家分配一個權重
+
+
+
+左邊部分展示了普通的Transformer模型，右邊展示了引入MoE結構的Transformer模型：其實就是把原來的FFN（兩層全連線）替換成了紅框裡的MoE結構。不過MoE裡面的“專家”依舊是FFN，只是從單個FFN換成了一群FFN，又加了一個分發器（圖中的Gating）。分發器的任務是把不同的token分發給不同的專家。
+
+
+
+
+看完了專家和分發器的作用，我們再進一步看看GShard裡面他們的具體實現：
+
+對於分發器來說，在訓練過程中，最好把token平均分配給各個專家：不然有些專家閒著，有些專家一堆事，會影響訓練速度，而且那些整天無所事事的專家肯定最後訓練的效果不好。。。因此分發器有一個很重要的任務，就是儘可能把token均分給各個專家。
+
+為了完成這個目標，有一些繁瑣的設定：
+
+1）引入了一個loss，專門用來控制我分發器分發的怎麼樣：如果我把token都分給一個人，loss就很高，分的越均勻（最好是徹底均分），loss越小
+2）每個token最多分配給兩個專家。如果我每個token哐嘰一下發給了所有人，那我多專家有什麼意義？（專家之間的差別主要就是訓練資料的不同引起的）
+3）每個專家每次最多接手C個token。和2類似，如果一個專家成天：“教練，我想打籃球”，“教練，我想唱”，“教練，我想rapper”。。。那估計最後學出來也是四不像
 
 
 ```

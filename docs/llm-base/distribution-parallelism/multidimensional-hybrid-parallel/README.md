@@ -5,17 +5,17 @@
 
 
 
-## 大模型多维混合并行汇总
+## 大模型多維混合並行彙總
 
 
-|    模型          | DP  | TP  | PP  | ZeRO Stage | FSDP（ZeRO Stage 3） | GPUs         |   FP16/BF16        | 训练框架  |
+|    模型          | DP  | TP  | PP  | ZeRO Stage | FSDP（ZeRO Stage 3） | GPUs         |   FP16/BF16        | 訓練框架  |
 | ------------ | --- | --- | --- | ---------- | ------------------ | ----------------------- | ------ |  ------ | 
-| Bloom-176B   | 8   | 4   | 12  | ZeRO-1     | -                  | 384 张 A100 80GB         | BF16    |  Megatron-DeepSpeed    |
-| CodeGeeX-13B | 192 | 8   | -   | ZeRO-2     | -                  | 1,536 张 Ascend 910 32GB | FP16  |   Megatron-LM    |
-| GLM-130B     | 24  | 4   | 8   | ZeRO-1     | -                  | 768 张 A100 40G          | FP16 |  Megatron-LM + DeepSpeed    |
-| OPT-175B     | 124   | 8   | -   | -          | ✅             | 992 张 80GB A100         | FP16 |   PyTorch + Megatron     |
-| Megatron-Turing NLG-530B | 16 | 8   | 35  |  -    | -                  | 4480 张 A100 80G | BF16 |  Megatron-LM  + DeepSpeed     |
-| GPT-NeoX-20B | 12 | 2   | 4  |ZeRO-1    | -                  | 96 张 A100 40G |   FP16  |   PyTorch v1.10.0 + NCCL 2.10.3 + CUDA 11.1 + Megatron-LM + DeepSpeed   |
+| Bloom-176B   | 8   | 4   | 12  | ZeRO-1     | -                  | 384 張 A100 80GB         | BF16    |  Megatron-DeepSpeed    |
+| CodeGeeX-13B | 192 | 8   | -   | ZeRO-2     | -                  | 1,536 張 Ascend 910 32GB | FP16  |   Megatron-LM    |
+| GLM-130B     | 24  | 4   | 8   | ZeRO-1     | -                  | 768 張 A100 40G          | FP16 |  Megatron-LM + DeepSpeed    |
+| OPT-175B     | 124   | 8   | -   | -          | ✅             | 992 張 80GB A100         | FP16 |   PyTorch + Megatron     |
+| Megatron-Turing NLG-530B | 16 | 8   | 35  |  -    | -                  | 4480 張 A100 80G | BF16 |  Megatron-LM  + DeepSpeed     |
+| GPT-NeoX-20B | 12 | 2   | 4  |ZeRO-1    | -                  | 96 張 A100 40G |   FP16  |   PyTorch v1.10.0 + NCCL 2.10.3 + CUDA 11.1 + Megatron-LM + DeepSpeed   |
 
 
 
@@ -90,7 +90,7 @@ ZERO_STAGE=0 # important: bf16 must use z0! it implements its own zero stage 1 e
 
 ## CodeGeeX-13B
 
-为了提高训练效率，我们采用8路模型并行训练和192路数据并行训练，启用 ZeRO-2 进一步减少优化器状态的内存消耗。 最后，微批量大小为每个节点 16 个，全局批量大小达到 3,072。
+為了提高訓練效率，我們採用8路模型並行訓練和192路資料並行訓練，啟用 ZeRO-2 進一步減少最佳化器狀態的記憶體消耗。 最後，微批次大小為每個節點 16 個，全域性批次大小達到 3,072。
 
 
 ```
@@ -123,7 +123,7 @@ learning rate 1e-4, and apply a cosine learning rate decay
 
 ```
 adopt 4-way tensor parallelism and 8-way pipeline parallelism
-96 台 A100（40G*8）
+96 臺 A100（40G*8）
 
 
 fp16 True
@@ -162,7 +162,7 @@ trained OPT-175B on 992 80GB A100 GPUs,
 
 by utilizing Fully Sharded Data Parallel with Megatron-LM Tensor Parallelism
 
-通过利用完全分片数据并行与 Megatron-LM 张量并行
+透過利用完全分片資料並行與 Megatron-LM 張量並行
 
 roughly ~33 days of continuous training
 
@@ -201,37 +201,37 @@ ZeRO shards the training state (model parameters, gradients, and optimizer state
 
 ## Megatron-Turing NLG（530B）
 
-我们使用了 Transformer 解码器的架构 [52]，它是一个从左到右、自回归、基于生成 Transformer 的语言模型，并将其扩展到 5300 亿个参数。 层数、隐藏维度、注意力头分别为 105、20480 和 128。 序列长度为2048，全局批量大小为1920。
+我們使用了 Transformer 解碼器的架構 [52]，它是一個從左到右、自迴歸、基於生成 Transformer 的語言模型，並將其擴充套件到 5300 億個引數。 層數、隱藏維度、注意力頭分別為 105、20480 和 128。 序列長度為2048，全域性批次大小為1920。
 
-我们使用 8 路张量和 35 路管道并行。 学习率为5:0e−5。
+我們使用 8 路張量和 35 路管道並行。 學習率為5:0e−5。
 
-我们使用 10 亿个代币进行线性学习率预热。
+我們使用 10 億個代幣進行線性學習率預熱。
 
-我们使用余弦衰减来使学习率目标达到超过 3400 亿代币价值的 10%。
+我們使用餘弦衰減來使學習率目標達到超過 3400 億代幣價值的 10%。
 
-在前 120 亿个代币中，我们从 32 的批量大小开始，并以 32 为增量逐渐增加批量大小，直到达到最终的批量大小 1920。
+在前 120 億個代幣中，我們從 32 的批次大小開始，並以 32 為增量逐漸增加批次大小，直到達到最終的批次大小 1920。
 
-我们使用 Adam 优化器，β1 = 0:9、β2 = 0:95 和 = 10−8。 我们将梯度范数限制为 1.0，并使用 0.1 的权重衰减。 对于权重初始化，我们使用均值为零、标准差为 4:0e−3 的正态分布。 我们的训练数据集由 3390 亿个令牌组成，我们通过混合上述 15 个训练数据集在 2700 亿个令牌上训练 MT-NLG。
+我們使用 Adam 最佳化器，β1 = 0:9、β2 = 0:95 和 = 10−8。 我們將梯度範數限制為 1.0，並使用 0.1 的權重衰減。 對於權重初始化，我們使用均值為零、標準差為 4:0e−3 的正態分佈。 我們的訓練資料集由 3390 億個令牌組成，我們透過混合上述 15 個訓練資料集在 2700 億個令牌上訓練 MT-NLG。
 
-我们还留出 2% 的数据进行验证。
+我們還留出 2% 的資料進行驗證。
 
-对于 MT-NLG 等模型的规模，训练稳定性是一个根本性的挑战。 在训练模型时，我们观察到学习率、权重初始化和 Adam 优化器参数直接影响模型的稳定性。
+對於 MT-NLG 等模型的規模，訓練穩定性是一個根本性的挑戰。 在訓練模型時，我們觀察到學習率、權重初始化和 Adam 最佳化器引數直接影響模型的穩定性。
 
-我们通过在 [9] 中绘制学习率与模型大小来预测 MT-NLG 的学习率。 较高的学习率会增加模型的稳定性。 我们使用大约 p1=(3 ∗ H) 作为权重初始化的标准差，其中 H 表示隐藏维度的大小。 与[45]类似，我们还观察到使用更高的方差进行权重初始化无法收敛。 我们还降低了 β2 的标准值 0:99，以减少训练损失的峰值。
-
-
+我們透過在 [9] 中繪製學習率與模型大小來預測 MT-NLG 的學習率。 較高的學習率會增加模型的穩定性。 我們使用大約 p1=(3 ∗ H) 作為權重初始化的標準差，其中 H 表示隱藏維度的大小。 與[45]類似，我們還觀察到使用更高的方差進行權重初始化無法收斂。 我們還降低了 β2 的標準值 0:99，以減少訓練損失的峰值。
 
 
 
 
 
-训练过程一共使用了4480块英伟达A100 GPU
 
 
-5300亿个参数的模型，每个模型副本跨越280个NVIDIA A100 GPU，节点内采用Megatron-LM的8路张量切片（tensor-slicing），节点间采用35路管道并行。
+訓練過程一共使用了4480塊英偉達A100 GPU
 
 
-基于NVIDIA DGX SuperPOD的Selene超级计算机上完成混合精度训练。（该超级计算机由560个DGX A100服务器提供支持，每个DGX A100有8个 NVIDIA A100 80GB Tensor Core GPU，通过NVLink 和 NVSwitch相互完全连接）。
+5300億個引數的模型，每個模型副本跨越280個NVIDIA A100 GPU，節點內採用Megatron-LM的8路張量切片（tensor-slicing），節點間採用35路管道並行。
+
+
+基於NVIDIA DGX SuperPOD的Selene超級計算機上完成混合精度訓練。（該超級計算機由560個DGX A100伺服器提供支援，每個DGX A100有8個 NVIDIA A100 80GB Tensor Core GPU，透過NVLink 和 NVSwitch相互完全連線）。
 
 
 

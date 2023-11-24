@@ -4,7 +4,7 @@
 
 
 
-## 支持的发布
+## 支援的釋出
 
 PDSH_LAUNCHER = 'pdsh'
 PDSH_MAX_FAN_OUT = 1024

@@ -28,16 +28,16 @@
 
 
 
-## 国产AI芯片
+## 國產AI晶片
 
 
 
-- 百度昆仑芯：https://www.kunlunxin.com/
+- 百度崑崙芯：https://www.kunlunxin.com/
 
 
 
 - 阿里含光https://zhuanlan.zhihu.com/p/593171726
-- 平头哥：https://www.t-head.cn/
+- 平頭哥：https://www.t-head.cn/
 
 
-- 昇腾：https://zhuanlan.zhihu.com/p/593202259
+- 昇騰：https://zhuanlan.zhihu.com/p/593202259

@@ -1,9 +1,9 @@
 
-## GPT2 模型训练 
+## GPT2 模型訓練 
 
 
 
-## 环境
+## 環境
 ```
 docker run -dt --name nvidia_pytorch_2304_temp --restart=always --gpus all \
 --network=host \
@@ -24,7 +24,7 @@ pip freeze > requirements.txt
 
 
 
-## 代码
+## 程式碼
 
 ```
 git clone https://github.com/NVIDIA/Megatron-LM.git
@@ -32,18 +32,18 @@ cd Megatron-LM
 git checkout 992da75
 ```
 
-修改代码：
+修改程式碼：
 - megatron/tokenizer/file_utils.py
 - tools/openwebtext/merge_data.py
 
-脚本：
-- pretrain_gpt.sh：单机
-- pretrain_gpt_distributed.sh：数据并行
-- pretrain_gpt_distributed_with_mp.sh：模型并行+数据并行
+指令碼：
+- pretrain_gpt.sh：單機
+- pretrain_gpt_distributed.sh：資料並行
+- pretrain_gpt_distributed_with_mp.sh：模型並行+資料並行
 
 
 
-## 权重
+## 權重
 
 ```
 > tree -h megatron
@@ -58,12 +58,12 @@ megatron
 release
 ```
 
-## [数据预处理](https://github.com/liguodongiot/llm-action/blob/main/train/megatron/gpt2/gpt-data-preprocess.md)
+## [資料預處理](https://github.com/liguodongiot/llm-action/blob/main/train/megatron/gpt2/gpt-data-preprocess.md)
 
 
-## [模型训练](https://github.com/liguodongiot/llm-action/blob/main/train/megatron/gpt2/model_train.md)
+## [模型訓練](https://github.com/liguodongiot/llm-action/blob/main/train/megatron/gpt2/model_train.md)
 
 
-## [模型评估及推理](https://github.com/liguodongiot/llm-action/blob/main/train/megatron/gpt2/model_merge_eval_inference.md)
+## [模型評估及推理](https://github.com/liguodongiot/llm-action/blob/main/train/megatron/gpt2/model_merge_eval_inference.md)
 
 

@@ -5,13 +5,13 @@
 吞吐量  
 
 
-延迟
+延遲
 
 
 
 
 
-投机采样：
+投機取樣：
 - https://github.com/feifeibear/LLMSpeculativeSampling
 
 美杜莎：
@@ -30,11 +30,11 @@
 
 
 
-## 博客
+## 部落格
 
 - https://huggingface.co/blog/optimize-llm
-- 加速大模型推理的7种方法：https://betterprogramming.pub/speed-up-llm-inference-83653aa24c47
-- 7个大模型推理服务化框架：https://betterprogramming.pub/frameworks-for-serving-llms-60b7f7b23407
+- 加速大模型推理的7種方法：https://betterprogramming.pub/speed-up-llm-inference-83653aa24c47
+- 7個大模型推理服務化框架：https://betterprogramming.pub/frameworks-for-serving-llms-60b7f7b23407
 
 
 

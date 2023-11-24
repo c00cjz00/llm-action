@@ -1,10 +1,10 @@
 - https://www.deepspeed.ai/docs/config-json/
 
 
-## Batch Size 相关的参数
+## Batch Size 相關的引數
 
 
-train_batch_size 必须等于 train_micro_batch_size_per_gpu * gradient_accumulation * gpu数量
+train_batch_size 必須等於 train_micro_batch_size_per_gpu * gradient_accumulation * gpu數量
 
 
 
@@ -16,24 +16,24 @@ train_batch_size 必须等于 train_micro_batch_size_per_gpu * gradient_accumula
 
 ### gradient_accumulation_steps
 
-在平均和应用梯度之前进行累积梯度的训练step数。 
+在平均和應用梯度之前進行累積梯度的訓練step數。 
 
-此功能有时对于提高可扩展性很有用，因为它会降低step之间梯度通信的频率。 
+此功能有時對於提高可擴充套件性很有用，因為它會降低step之間梯度通訊的頻率。 
 
-此功能的另一个影响是能够在每个 GPU 上使用更大的批量大小进行训练。
+此功能的另一個影響是能夠在每個 GPU 上使用更大的批次大小進行訓練。
 
 
 
-## Optimizer 参数
+## Optimizer 引數
 
-- type：优化器名称。 DeepSpeed 原生支持 Adam、AdamW、OneBitAdam、Lamb 和 OneBitLamb 优化器，同时，也可以从 torch 中导入其他优化器。
+- type：最佳化器名稱。 DeepSpeed 原生支援 Adam、AdamW、OneBitAdam、Lamb 和 OneBitLamb 最佳化器，同時，也可以從 torch 中匯入其他最佳化器。
    - https://deepspeed.readthedocs.io/en/latest/optimizers.html#optimizers
    - https://pytorch.org/docs/stable/optim.html
-- params：用于实例化优化器的参数字典。参数名称必须与优化器构造函数签名匹配（例如，Adam）。
+- params：用於例項化最佳化器的引數字典。引數名稱必須與最佳化器建構函式簽名匹配（例如，Adam）。
    - https://pytorch.org/docs/stable/optim.html#algorithms
    - https://pytorch.org/docs/stable/generated/torch.optim.Adam.html
 
-Adam 优化器示例：
+Adam 最佳化器示例：
 
 ```
 "optimizer": {
@@ -52,13 +52,13 @@ Adam 优化器示例：
 
 
 
-## Scheduler 参数
+## Scheduler 引數
 
-当执行 model_engine.step() 时，DeepSpeed 在每个训练步骤调用 scheduler 的 step() 方法。
+當執行 model_engine.step() 時，DeepSpeed 在每個訓練步驟呼叫 scheduler 的 step() 方法。
 
-- type：学习率调度器名，DeepSpeed 提供了 LRRangeTest、OneCycle、WarmupLR、WarmupDecayLR 学习率调度器的实现。
+- type：學習率排程器名，DeepSpeed 提供了 LRRangeTest、OneCycle、WarmupLR、WarmupDecayLR 學習率排程器的實現。
    - https://deepspeed.readthedocs.io/en/latest/schedulers.html
-- params：用于实例化调度器的参数字典。参数名称应与调度程序构造函数签名匹配。
+- params：用於例項化排程器的引數字典。引數名稱應與排程程式建構函式簽名匹配。
 
 scheduler 示例：
 
@@ -73,7 +73,7 @@ scheduler 示例：
   }
 ```
 
-## 通讯选项
+## 通訊選項
 
 
 ### communication_data_type
@@ -88,9 +88,9 @@ scheduler 示例：
 ### sparse_gradients
 
 
-## FP16 训练选项
+## FP16 訓練選項
 
-- 注意：此模式不能与下述 amp 模式结合使用。
+- 注意：此模式不能與下述 amp 模式結合使用。
 
 
 
@@ -114,16 +114,16 @@ scheduler 示例：
 
 
 
-## BFLOAT16 训练选项
+## BFLOAT16 訓練選項
 
-- 注意：此模式不能与下述amp模式结合使用。
-- 注意：该模式不能与上述fp16模式结合使用。
+- 注意：此模式不能與下述amp模式結合使用。
+- 注意：該模式不能與上述fp16模式結合使用。
 
-使用 bfloat16 浮点格式作为 FP16 替代方案。 
+使用 bfloat16 浮點格式作為 FP16 替代方案。 
 
-BFLOAT16 需要硬件支持（例如：NVIDIA A100）。 
+BFLOAT16 需要硬體支援（例如：NVIDIA A100）。 
 
-使用 bfloat16 进行训练不需要损失缩放。
+使用 bfloat16 進行訓練不需要損失縮放。
 
 示例如下所示。 
 
@@ -135,9 +135,9 @@ BFLOAT16 需要硬件支持（例如：NVIDIA A100）。
 
 
 
-## 自动混合精度 (AMP) 训练选项
+## 自動混合精度 (AMP) 訓練選項
 
-注意：该模式不能与上述fp16模式结合使用。 此外，该模式目前与 ZeRO 不兼容。
+注意：該模式不能與上述fp16模式結合使用。 此外，該模式目前與 ZeRO 不相容。
 
 ```
 "amp": {
@@ -157,15 +157,15 @@ BFLOAT16 需要硬件支持（例如：NVIDIA A100）。
 
 
 
-## 针对 FP16 训练的 ZeRO 优化
+## 針對 FP16 訓練的 ZeRO 最佳化
 
 
-## 参数卸载（Parameter offloading）
+## 引數解除安裝（Parameter offloading）
 
 
-启用和配置 ZeRO 优化，将参数卸载到 CPU/NVMe。 仅适用于 ZeRO 阶段 3。
+啟用和配置 ZeRO 最佳化，將引數解除安裝到 CPU/NVMe。 僅適用於 ZeRO 階段 3。
 
-- 注意，如果"device"的值未指定或不支持，则会触发断言。
+- 注意，如果"device"的值未指定或不支援，則會觸發斷言。
 
 ```
  "offload_param": {
@@ -178,13 +178,13 @@ BFLOAT16 需要硬件支持（例如：NVIDIA A100）。
   }
 ```
 
-## 优化器卸载
+## 最佳化器解除安裝
 
-启用和配置 ZeRO 优化，将优化器计算卸载到 CPU 并将优化器状态卸载到 CPU/NVMe。 
+啟用和配置 ZeRO 最佳化，將最佳化器計算解除安裝到 CPU 並將最佳化器狀態解除安裝到 CPU/NVMe。 
 
-CPU 卸载适用于 ZeRO 阶段 1、2、3。NVMe 卸载仅适用于 ZeRO 阶段 3。
+CPU 解除安裝適用於 ZeRO 階段 1、2、3。NVMe 解除安裝僅適用於 ZeRO 階段 3。
 
-- 注意，如果"device"的值未指定或不支持，则会触发断言。
+- 注意，如果"device"的值未指定或不支援，則會觸發斷言。
 
 
 ```
@@ -248,8 +248,8 @@ CPU 卸载适用于 ZeRO 阶段 1、2、3。NVMe 卸载仅适用于 ZeRO 阶段 
 
 ## Flops 分析器（Flops Profiler）
 
-- detailed：是否打印详细的模型配置。
-- output_file：输出文件的路径。 如果没有，Profiler 将打印到标准输出。
+- detailed：是否列印詳細的模型配置。
+- output_file：輸出檔案的路徑。 如果沒有，Profiler 將列印到標準輸出。
 
 
 ```
@@ -266,7 +266,7 @@ CPU 卸载适用于 ZeRO 阶段 1、2、3。NVMe 卸载仅适用于 ZeRO 阶段 
 ```
 
 
-## 监控模块（TensorBoard、WandB、CSV）
+## 監控模組（TensorBoard、WandB、CSV）
 
 
 ### tensorboard
@@ -284,25 +284,25 @@ TensorBoard配置示例：
 
 
 
-## 压缩（Compression）
+## 壓縮（Compression）
 
 ### Layer Reduction
 
-### 权重量化（Weight Quantization）
+### 權重量化（Weight Quantization）
 
 
-### 激活量化（Activation Quantization）
+### 啟用量化（Activation Quantization）
 
 ### 稀疏剪枝（Sparse Pruning）
 
-### 头剪枝(Head Pruning)
+### 頭剪枝(Head Pruning)
 
 
 
 ### 通道剪枝（Channel Pruning）
 
 
-## Checkpoint 选项
+## Checkpoint 選項
 
 ```
 "checkpoint": {
@@ -317,7 +317,7 @@ TensorBoard配置示例：
 
 
 
-## 数据类型选项
+## 資料型別選項
 
 ```
 "data_types": {

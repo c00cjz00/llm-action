@@ -1,7 +1,7 @@
 
 
 
-## 算法
+## 演算法
 
 CLIP
 
@@ -23,17 +23,17 @@ MDETR
 
 ### Stable Diffusion  
 
-扩散模型 ， 多模态任务：文生图 图生图
+擴散模型 ， 多模態任務：文生圖 圖生圖
 
 - https://huggingface.co/docs/peft/task_guides/dreambooth_lora
 - https://github.com/huggingface/peft/tree/v0.6.2/examples/lora_dreambooth
 - 推理：https://github.com/huggingface/peft/blob/v0.6.2/examples/lora_dreambooth/lora_dreambooth_inference.ipynb
-- 数据：https://huggingface.co/datasets/diffusers/docs-images
+- 資料：https://huggingface.co/datasets/diffusers/docs-images
 
-支持多种微调技术：LoRA、	LoHa、	LoKr
+支援多種微調技術：LoRA、	LoHa、	LoKr
 
 
-- 扩散模型库：https://huggingface.co/docs/diffusers/tutorials/tutorial_overview
+- 擴散模型庫：https://huggingface.co/docs/diffusers/tutorials/tutorial_overview
 
 
 
@@ -46,9 +46,9 @@ MDETR
 ### Blip2 
 image to text (Multi-modal models)
 
-- 微调：https://github.com/huggingface/peft/blob/v0.6.2/examples/int8_training/fine_tune_blip2_int8.py
+- 微調：https://github.com/huggingface/peft/blob/v0.6.2/examples/int8_training/fine_tune_blip2_int8.py
 - 模型及示例：https://huggingface.co/Salesforce/blip2-opt-2.7b
-- 使用 BLIP-2 零样本“图生文：https://huggingface.co/blog/zh/blip-2
+- 使用 BLIP-2 零樣本“圖生文：https://huggingface.co/blog/zh/blip-2
 
 
 
@@ -56,75 +56,75 @@ image to text (Multi-modal models)
 
 
 
-## 任务
+## 任務
 
-文生图，还能实现图生文、图文联合生成、无条件图文生成、图文改写
-
-
-文生图(Generation) （文本->图像）
-视觉问答(Visual Question Answering) (图像+文本 ->文本)
-多模态分类 (Multimodal classification) (图像+文本 -> 标签)
-优化理解/生成(Better understanding/generation) (图像+文本 ->标签/文本)
-
-零样本图像描述生成
+文生圖，還能實現圖生文、圖文聯合生成、無條件圖文生成、圖文改寫
 
 
-通用视觉问答
+文生圖(Generation) （文字->影象）
+視覺問答(Visual Question Answering) (影象+文字 ->文字)
+多模態分類 (Multimodal classification) (影象+文字 -> 標籤)
+最佳化理解/生成(Better understanding/generation) (影象+文字 ->標籤/文字)
 
-文本导向的视觉问答
-
-细粒度视觉定位
-
-
-
-例如给定一张图片，可以完成以下任务：
-
-一、VQA（Visual Question Answering）视觉问答输入：一张图片、一个自然语言描述的问题输出：答案（单词或短语）
-
-二、Image Caption 图像字幕输入：一张图片输出：图片的自然语言描述（一个句子）
-
-三、Referring Expression Comprehension 指代表达输入：一张图片、一个自然语言描述的句子输出：判断句子描述的内容（正确或错误）
-
-四、Visual Dialogue 视觉对话输入：一张图片输出：两个角色进行多次交互、对话
-
-五、VCR (Visual Commonsense Reasoning) 视觉常识推理输入：1个问题，4个备选答案，4个理由输出：正确答案，和理由
+零樣本影象描述生成
 
 
-六、NLVR(Natural Language for Visual Reasoning)自然语言视觉推理
+通用視覺問答
 
-输入：2张图片，一个分布
+文字導向的視覺問答
 
-输出：true或false
+細粒度視覺定位
 
 
 
-七、Visual Entailment 视觉蕴含
+例如給定一張圖片，可以完成以下任務：
 
-输入：图像、文本
+一、VQA（Visual Question Answering）視覺問答輸入：一張圖片、一個自然語言描述的問題輸出：答案（單詞或短語）
 
-输出：3种label的概率。（entailment、neutral、contradiction）蕴含、中性、矛盾
+二、Image Caption 影象字幕輸入：一張圖片輸出：圖片的自然語言描述（一個句子）
 
+三、Referring Expression Comprehension 指代表達輸入：一張圖片、一個自然語言描述的句子輸出：判斷句子描述的內容（正確或錯誤）
 
+四、Visual Dialogue 視覺對話輸入：一張圖片輸出：兩個角色進行多次互動、對話
 
-
-八、Image-Text Retrieval 图文检索
-
-有3种方式。
-
-1）以图搜文。输入图片，输出文本
-
-2）以文搜图。输入文本，输出图片
-
-3）以图搜图，输入图片，输出图片
+五、VCR (Visual Commonsense Reasoning) 視覺常識推理輸入：1個問題，4個備選答案，4個理由輸出：正確答案，和理由
 
 
+六、NLVR(Natural Language for Visual Reasoning)自然語言視覺推理
+
+輸入：2張圖片，一個分佈
+
+輸出：true或false
+
+
+
+七、Visual Entailment 視覺蘊含
+
+輸入：影象、文字
+
+輸出：3種label的機率。（entailment、neutral、contradiction）蘊含、中性、矛盾
+
+
+
+
+八、Image-Text Retrieval 圖文檢索
+
+有3種方式。
+
+1）以圖搜文。輸入圖片，輸出文字
+
+2）以文搜圖。輸入文字，輸出圖片
+
+3）以圖搜圖，輸入圖片，輸出圖片
 
 
 
 
 
 
-## 多模态通用模型 FLAVA
+
+
+## 多模態通用模型 FLAVA
 
 https://github.com/facebookresearch/multimodal/tree/main/examples/flava
 

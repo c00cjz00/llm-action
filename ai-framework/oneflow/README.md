@@ -31,7 +31,7 @@ FashionMNIST
 ```
 
 
-## 数据
+## 資料
 
 ```
 tree /data/hpc/home/guodong.li/data

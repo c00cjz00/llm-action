@@ -2,12 +2,12 @@
 
 
 
-镜像：
+映象：
 
 - https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch
 
 
-python tar包安装：
+python tar包安裝：
 
 - https://docs.nvidia.com/deeplearning/tensorrt/quick-start-guide/index.html#installing-pip
 - https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing-tar

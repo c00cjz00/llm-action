@@ -35,9 +35,9 @@ registry.baidubce.com/paddlepaddle/paddle:2.5.1-gpu-cuda11.7-cudnn8.4-trt8.4 \
 
 CUDA 工具包 11.7 配合 cuDNN v8.4.1, 如需使用 PaddleTensorRT 推理，需配合 TensorRT8.4.2.4
 
-如需使用分布式多卡环境，需配合 NCCL>=2.7
+如需使用分散式多卡環境，需配合 NCCL>=2.7
 
-GPU 运算能力超过 3.5 的硬件设备
+GPU 運算能力超過 3.5 的硬體裝置
 
 
 ```
@@ -68,7 +68,7 @@ python3 -m pip uninstall paddlepaddle-gpu
 
 
 
-## 安装develop版本
+## 安裝develop版本
 
 
 ```

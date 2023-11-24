@@ -2,7 +2,7 @@
 
 
 
-## 训练
+## 訓練
 
 
 - https://gitee.com/mindspore/mindformers/blob/dev/docs/model_cards/llama.md
